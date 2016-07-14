@@ -12,7 +12,7 @@ A branch is a separate version of a master file that allows you to work, edit, a
 
 * What is a commit? What makes a good commit message?
 
-A commit is a snapshot of a stopping point to record progress. A good commit message explains the changes that have been made and is detailed.
+A commit is a save point to record progress. A good commit message explains the changes that have been made and is detailed.
 
 * What is a merge conflict?
 

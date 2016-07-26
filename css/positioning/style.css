@@ -1,20 +1,21 @@
 
+#hat{
+ 	position: relative;
+	margin: 50px 320px -290px 280px;
+}
+#glasses{
+	position: relative;
+	margin: 290px 360px -260px 340px;
+ }
 
 #octopus{
-	position: relative;	
-	margin: auto;
-    width: 50%;
+	margin: 100px 300px 100px 300px;
+
 }
 
-#glasses{
-	position: absolute;		
-	margin: auto;
-    width: 50%;
-}
 
-#hat{
-	position: relative;	
-	margin: auto;
-    width: 50%;
-	
-}
+
+
+
+
+

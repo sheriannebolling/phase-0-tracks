@@ -1,21 +1,24 @@
+
+section > ul {
+   background-color: yellow;
+}
+
 #contact-info{
-  font-size: .8em
+  font-size: .8em;
 }
 .job{
   border-radius: 15px;
   margin:4px;
   padding:4px;
-  background: #e9e5dc
+  background: #e9e5dc;
 }
-​
-.list{
-  font-size: .8em
-}
-​
+
 .list:hover{
   color: #FF0000;
 }
-​
-section > ul {
-   background-color: yellow;
+
+.list{
+  font-size: .8em;
 }
+
+

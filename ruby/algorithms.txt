@@ -1,18 +1,29 @@
 Algorithm for using an elevator:
 
-Face door
+	-Face door
  	-If going up press top button
 		-otherwise press bottom button
 	-Wait until door opens
 	-If door opens
-		-Step forward until completely past door
+		-Move forward until completely past door
 		-Turn 180 degrees
 		-Locate panel with buttons that have integers on them 
-	-If going to first floor press button with 1 on it
-	-Else 
+	-Push button of floor
+		-If going to first floor press button with integer 1 on it
+		-Else if going to second floor press button with integer 2 on it
+		-Else if going to third floor press button with integer 3 on it
+		-Else if going to fourth floor press button with integer 4 on it
+		-Else if going to fifth floor press button with integer 5 on it
+		-Else if going to sixth floor press button with integer 6 on it
+		-Else if going to seventh floor press button with integer 7 on it
+		-Else if going to eight floor press button with integer 8 on it
+		-Else if going to ninth floor press button with integer 9 on it
+		-Else if going to tenth floor press button with integer 10 on it
+		-Else if returning to ground floor press button with * on it
+	-Wait until door opens and floor’s number that was chosen goes out. 
+	-Move forward until completely passed door
 
 
-		
 Wash and Dry laundry:
 
 	-Sort items

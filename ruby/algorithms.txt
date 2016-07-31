@@ -20,7 +20,7 @@ Algorithm for using an elevator:
 		-Else if going to ninth floor press button with integer 9 on it
 		-Else if going to tenth floor press button with integer 10 on it
 		-Else if returning to ground floor press button with * on it
-	-Wait until door opens and floor’s number that was chosen goes out. 
+	-Wait until door opens and floor’s illuminated number on the button that was chosen goes out. 
 	-Move forward until completely passed door
 
 

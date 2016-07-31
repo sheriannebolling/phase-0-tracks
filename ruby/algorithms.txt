@@ -1,0 +1,75 @@
+Algorithm for using an elevator:
+
+Face door
+ 	-If going up press top button
+		-otherwise press bottom button
+	-Wait until door opens
+	-If door opens
+		-Step forward until completely past door
+		-Turn 180 degrees
+		-Locate panel with buttons that have integers on them 
+	-If going to first floor press button with 1 on it
+	-Else 
+
+
+		
+Wash and Dry laundry:
+
+	-Sort items
+		-If items are white put in pile 1
+		-Else if items are not white and are square or rectangular put in pile 		2
+		-Else if items are not white and not square or rectangular put in pile 		3
+			-Else if items are not white and not square or rectangular 				and are delicate then put in pile 4
+	-Pull open machine door that has glass circle.
+	-Put random one of the piles inside
+	-Close door until door clicks
+	-Locate detergent 
+		-Unscrew cap
+		-Pour detergent in cap
+			-If pile fills more than 3/4 machine fill cap until top line 			is reached
+			-If pile fills more than 1/2 machine but less than 3/4 				machine fill cap until line 2nd to the top is reached
+			-If pile fills less than 1/2 machine but more than 1/4 				machine fill cap until 3rd line from the top is reached
+			-If pile fills less than 1/4 machine fill cap until farthest 			line from the top is reached	
+		-Screw cap back on detergent
+	-Locate detergent tray
+	-Open detergent tray
+		-Pour detergent from cap into opening of detergent tray that has 			written on it “detergent” until all detergent is out of cap
+	-If pile 1 Locate bleach
+		-Unscrew cap
+		-Fill cap until line is reached
+		-Pour bleach from cap into opening of detergent tray that has written 		on it “bleach” until all bleach is out of cap
+		-Screw cap back on bleach
+	-Close detergent tray
+	-Locate knob on machine
+		-If pile 1 spin knob until light near “whites” lights up
+		-Else if pile 2 spin knob until light near “cottons” lights up
+		-Else if pile 3 spin knob until light near “normal” lights up
+		-Else if pile 4 spin knob until light near “delicates” lights up
+	-Press start
+	-Wait until machine turns off
+	-Pull open machine door that has glass circle.
+	-If pile 1, 2, or 3
+		-Pull open machine next to it on right with door that does not have 			glass circle which is directly next to it.
+		-Move pile from inside machine with glass door to inside the machine 		without the glass door on right
+		-Locate box labeled dryer sheets
+		-Put 1 dryer sheet in machine without glass door.
+		-Close door
+		-Locate knob on machine 
+		-If pile 1 or 2
+			-Turn knob to “High/cottons”
+		-else if pile 3
+			-Turn knob to “Medium/permanent press”	
+	-If pile 4
+		-Lay pile flat on rack left of machine
+		-Repeat all steps after sort items until there are no piles left
+	-If pile 1, 2, 3 
+		-Wait until machine stops
+		-Open door
+		-Put pile in bag
+		-Pull lint out of lint trap directly inside door and throw it out
+		-Repeat all steps after sort items until there are no piles left.
+	
+	
+	 
+	
+	

@@ -13,6 +13,16 @@ employees.to_i.downto(1) do
 	garlic = gets.chomp
 	puts "Would you like to enroll in the company’s health insurance?"
 	insurance = gets.chomp
+	puts "Do you have allergies? Please enter one at a time. Enter done when you have no more allergies to enter."
+	allergies = gets.chomp
+	#list allergies 
+		until allergies == "done" do
+			puts "Do you have allergies? Please enter one at a time. Enter done when you have no more allergies to enter."
+			allergies = gets.chomp	
+			if allergies == "sunshine"
+			 allergies = "done"
+			end
+		end
 
 	#Determine if age is correct
 	year = "2016".to_i
@@ -24,8 +34,9 @@ employees.to_i.downto(1) do
 	end
 
 	#Determine if likely a vampire
-
-	if name == "Drake Cula" || name == "Tu Fang"
+	if allergies == "sunshine"
+		puts "probably a vampire."
+	elsif name == "Drake Cula" || name == "Tu Fang"
 		puts "Definitely a vampire"
 	elsif youth == false && (garlic == "no" && insurance == "no")
 		puts "Almost certainly a vampire."

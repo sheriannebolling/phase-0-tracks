@@ -1,7 +1,7 @@
 puts "How many employees will be processed?"
 employees = gets.chomp
 
-employees.to_i.downto(1) do
+while employees.to_i > 0 do
 	#vampire survey
 	puts "What is your name?"
 	name = gets.chomp
@@ -47,6 +47,8 @@ employees.to_i.downto(1) do
 	else 
 		puts "Results inconclusive"
 	end
+	employees = employees.to_i - 1
+
 end
 
 puts "Actually, never mind! What do these questions have to do with anything? Let's all be friends."

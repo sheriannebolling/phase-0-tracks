@@ -13,18 +13,8 @@ while employees.to_i > 0 do
 	garlic = gets.chomp
 	puts "Would you like to enroll in the company’s health insurance?"
 	insurance = gets.chomp
-	puts "Do you have allergies? Please enter one at a time. Enter done when you have no more allergies to enter."
-	allergies = gets.chomp
-	#list allergies 
-		until allergies == "done" do
-			puts "Do you have allergies? Please enter one at a time. Enter done when you have no more allergies to enter."
-			allergies = gets.chomp	
-			if allergies == "sunshine"
-			 allergies = "done"
-			end
-		end
-
-	#Determine if age is correct
+	
+		#Determine if age is correct
 	year = "2016".to_i
 
 	if age.to_i == year - born.to_i
@@ -32,11 +22,27 @@ while employees.to_i > 0 do
 	else
 		youth = false
 	end
+	
+	#ask about allergies 
+	
+	puts "Do you have allergies? Please enter one at a time. Enter done when you have no more allergies to enter."
+	allergies = gets.chomp
+	
+		until allergies == "done" do
+			puts "Do you have allergies? Please enter one at a time. Enter done when you have no more allergies to enter."
+			allergies = gets.chomp	
+			if allergies == "sunshine"
+			 allergies = "done"
+			 youth = false
+			 garlic = "no"
+			 insurance = "yes"
+			 name = "Sheri" 
+		end
+	end
 
-		#Determine if likely a vampire
-	if allergies == "sunshine" 
-		puts "probably a vampire."
-	elsif (youth == true && (garlic == "yes" || insurance == "yes") || (garlic == "yes" && insurance == "yes") && (name != "Drake Cula" && name != "Tu Fang" && allergies != "sunshine"))
+	#Determine if likely a vampire
+	
+	if (youth == true && (garlic == "yes" || insurance == "yes") || (garlic == "yes" && insurance == "yes") && (name != "Drake Cula" && name != "Tu Fang" && allergies != "sunshine"))
 		puts "Probably not a vampire."
 	elsif (youth == false && (garlic == "no" || insurance == "no")&& !(garlic == "no" && insurance == "no")&&(name != "Drake Cula" && name != "Tu Fang" && allergies != "sunshine"))
 		puts "probably a vampire." 

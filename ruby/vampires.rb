@@ -33,17 +33,17 @@ while employees.to_i > 0 do
 		youth = false
 	end
 
-	#Determine if likely a vampire
-	if allergies == "sunshine"
+		#Determine if likely a vampire
+	if allergies == "sunshine" 
 		puts "probably a vampire."
-	elsif name == "Drake Cula" || name == "Tu Fang"
-		puts "Definitely a vampire"
-	elsif youth == false && (garlic == "no" && insurance == "no")
-		puts "Almost certainly a vampire."
-	elsif youth == false && (garlic == "no" || insurance == "no")
-		puts "probably a vampire."
-	elsif youth != false && (garlic == "yes" || insurance == "yes")
+	elsif (youth == true && (garlic == "yes" || insurance == "yes") || (garlic == "yes" && insurance == "yes") && (name != "Drake Cula" && name != "Tu Fang" && allergies != "sunshine"))
 		puts "Probably not a vampire."
+	elsif (youth == false && (garlic == "no" || insurance == "no")&& !(garlic == "no" && insurance == "no")&&(name != "Drake Cula" && name != "Tu Fang" && allergies != "sunshine"))
+		puts "probably a vampire." 
+	elsif (youth == false && (garlic == "no" && insurance == "no") && (name != "Drake Cula" && name != "Tu Fang" && allergies != "sunshine"))
+		puts "Almost certainly a vampire."
+	elsif (name == "Drake Cula" || name == "Tu Fang") && allergies != "sunshine"
+		puts "Definitely a vampire"
 	else 
 		puts "Results inconclusive"
 	end

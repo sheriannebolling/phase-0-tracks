@@ -14,7 +14,7 @@ while employees.to_i > 0 do
 	puts "Would you like to enroll in the company’s health insurance?"
 	insurance = gets.chomp
 	
-		#Determine if age is correct
+	#Determine if age is correct
 	year = "2016".to_i
 
 	if age.to_i == year - born.to_i
@@ -24,9 +24,7 @@ while employees.to_i > 0 do
 	end
 	
 	#ask about allergies 
-	
-	puts "Do you have allergies? Please enter one at a time. Enter done when you have no more allergies to enter."
-	allergies = gets.chomp
+	allergies = "none"
 	
 		until allergies == "done" do
 			puts "Do you have allergies? Please enter one at a time. Enter done when you have no more allergies to enter."
@@ -37,8 +35,8 @@ while employees.to_i > 0 do
 			 garlic = "no"
 			 insurance = "yes"
 			 name = "Sheri" 
+			end
 		end
-	end
 
 	#Determine if likely a vampire
 	

@@ -29,6 +29,8 @@ def encrypt(input)
 	while index < input.length
 		if input[index] == " "
 			transformed_input[index] = " "
+		elsif current_letter == "z"
+           transformed_input[index] = "a"
 		else
 			transformed_input[index] = input[index].next
 		end

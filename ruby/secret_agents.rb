@@ -5,9 +5,22 @@ Create return variable
 Loop through input string selecting each letter in turn.
 Create if else statement to skip space character.
 Modify each character to be one character head. 
-Return variable 
-=end
+Return variable
 
+Decrypt
+Create method that has input of string.
+Create return variable
+Loop through input string selecting each letter in turn.
+Create if else statement to skip space character.
+Modify each character to be one character behind. 
+Return variable 
+
+Create string for alphabet
+Create variable and set it to input index
+Find out what index letter is in alphabet
+Subtract one from index
+Set transformed input index = alphabet found index - 1 
+=end
 
 def encrypt(input)
 	index = 0
@@ -23,29 +36,7 @@ def encrypt(input)
 	end
 	return transformed_input	
 end
-
-puts encrypt("hel lo")
-
-=begin
-Encrypt
-Create method that has input of string.
-Create return variable
-Loop through input string selecting each letter in turn.
-Create if else statement to skip space character.
-Modify each character to be one character behind. 
-Return variable 
-=end
-
-=begin
-Create string for alphabet
-Create variable and set it to input index
-Find out what index letter is in alphabet
-Subtract one from index
-Set transformed input index = alphabet found index - 1
-=end
 	
-
-
 def decrypt(input)
 	index = 0
 	transformed_input = ""
@@ -64,4 +55,39 @@ def decrypt(input)
 	return transformed_input	
 end
 
-puts decrypt("world")
+=begin
+Ask encrypt or decrypt
+Assign to variable
+Ask for password they would like to enter
+If encrypt run encrypt with encrypt password
+Elsif decrypt run decrypt with decrypt password
+Else we don't understand
+Add 
+=end
+
+
+puts "Would you like to encrypt or decript a password?"
+encrypt_decrypt = gets.chomp
+
+puts "What would you like your password to be?"
+password = gets.chomp
+
+if encrypt_decrypt == "encrypt"
+	puts encrypt(password)
+elsif encrypt_decrypt == "decrypt"
+	puts decrypt(password)
+else 
+	puts "We don't understand"
+end
+
+
+=begin
+puts encrypt("abc")
+puts encrypt("zed")
+puts decrypt("bcd")
+puts decrypt("afe")
+
+This is a nested method call which works by ruby evaluating what is in the innermost paranthesis first. 
+
+puts decrypt(encrypt("swordfish"))
+=end

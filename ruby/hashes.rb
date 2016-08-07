@@ -18,22 +18,33 @@ theme = gets.chomp
 
 client_details = {
 	name: name,
-	age: age,
-	children: children,
-	decor_theme: theme
+	age: age.to_i,
+	children: children.to_i,
+	theme: theme
 }
 
 p client_details
 
-def update_value()
-	puts "Would you like to update a key?"
-	update = gets.chomp
-	if update == yes
+puts "Would you like to update a key?"
+update = gets.chomp
+	if update == "yes"
 		puts "What key would you like to update?"
 		key = gets.chomp
+		puts "What would you like to update the value to?"
+		value = gets.chomp
 	else
 		puts "Ok no updates will be made"
 	end		
-end
-p client_info
+
+	if key == "name"
+		client_details.merge!(:name => value)
+	elsif key == "age"
+		client_details.merge!(:age => value.to_i)
+	elsif key == "children"
+		client_details.merge!(:children => value.to_i)
+	elsif key == "theme"
+		client_details.merge!(:theme => value)
+	end
+
+p client_details
 

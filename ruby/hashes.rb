@@ -1,42 +1,51 @@
 =begin
-Input - client data
-Create hash with keys to keep track of assigned data
-Prompt user for data and assign data as value for key
+Input - client data 
+Create hash 
+Prompt user for data 
+Assign data as value for key
 Give user oppurtunity to update a key
 Output - print entire hash after all questions answered
 =end
 
 
+#Create hash, prompt user, and add entered data to hash.
+
+client_details = {}
+
 puts "What is the client's name?"
 name = gets.chomp
+client_details[:name] = name
+
 puts "What is the client's age?"
 age = gets.chomp
+client_details[:age] = age.to_i
+
 puts "How many children does the client have?"
 children = gets.chomp
+client_details[:children] = children.to_i
+
 puts "What decor theme would the client like?"
 theme = gets.chomp
+client_details[:theme] = theme
+
 puts "Does the client have a budget?"
 budget = gets.chomp
-
-client_details = {
-	name: name,
-	age: age.to_i,
-	children: children.to_i,
-	theme: theme,
-	budget: budget
-}
+client_details[:budget] = budget
 
 p client_details
 
-puts "Would you like to update a key?"
+#Allow user to update hash value. 
+
+puts "Do you have any updates?(yes or none)"
 update = gets.chomp
 	if update == "yes"
 		puts "What key would you like to update?"
 		key = gets.chomp
 		puts "What would you like to update the value to?"
 		value = gets.chomp
-	else
+	elsif update == "none"
 		puts "Ok no updates will be made"
+
 	end		
 
 	if key == "name"

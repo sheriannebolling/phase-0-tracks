@@ -15,12 +15,15 @@ puts "How many children does the client have?"
 children = gets.chomp
 puts "What decor theme would the client like?"
 theme = gets.chomp
+puts "Does the client have a budget?"
+budget = gets.chomp
 
 client_details = {
 	name: name,
 	age: age.to_i,
 	children: children.to_i,
-	theme: theme
+	theme: theme,
+	budget: budget
 }
 
 p client_details
@@ -44,6 +47,8 @@ update = gets.chomp
 		client_details.merge!(:children => value.to_i)
 	elsif key == "theme"
 		client_details.merge!(:theme => value)
+	elsif key == "budget"
+		client_details.merge!(:budget => value)
 	end
 
 p client_details

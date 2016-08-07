@@ -7,7 +7,7 @@ animal_shelter = {
 				good_with_kids: "no",
 				good_with_other_animals: "no",
 				status: "adopted" 
-				},
+			},
 			Dumpling:{
 				good_with_kids: "yes",
 				good_with_other_animals: "yes",
@@ -19,7 +19,7 @@ animal_shelter = {
 				good_with_kids: "yes",
 				good_with_other_animals: "no",
 				status: "not adopted" 
-				},
+			},
 			Tamale:{
 				good_with_kids: "no",
 				good_with_other_animals: "no",
@@ -35,7 +35,7 @@ animal_shelter = {
 					"black",
 					"white"
 				]
-				},
+			},
 			Peewee:{
 				good_with_kids: "yes",
 				good_with_other_animals: "yes",

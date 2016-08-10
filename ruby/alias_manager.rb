@@ -22,6 +22,10 @@ def swap_names(name)
 	p name
 	chars = name.split(//)
 	p chars
+	new_name = chars.join
+	alias_names = {}
+
+	alias_names.each {|real_name, fake_name| puts "#{real_name} is the real name of #{fake_name}" }
 end
 
 

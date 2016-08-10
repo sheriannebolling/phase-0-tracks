@@ -12,24 +12,40 @@ Return string with first letter uppercase
 Test "Felicia Torres" which should become "Vussit Gimodoe"
 =end 
 
+#Method swaps first and last name
+
 
 def swap_names(name)
+	name.downcase!
 	name_array = name.split
-	name_array.reverse!
-	return name_array
+	name_array.reverse!	
+	name = name_array.join(" ")
+	chars = name.split(//)
+	p chars
 end
 
-def vowel_next(name)
+p swap_names("Felicia Torres")
+
+
+
+
+def next_vowel (name)
+	name.downcase!	
 	index = 0
-	vowel = "aeiou"
-	consonant = "bcdfghjklmnpqrstvwxz"
-	while index < name.length 
-		letters = name.split
-		if letters == consonant
-			letters.next
+	transformed_name = ""
+	vowels = "aeiou"
+	while index < name.length
+		name_index = name[index]
+		vowels_index = vowels[index]
+		if name_index == vowels.each_char
+			transformed_name = vowels[index].next
 		end
 		index += 1
 	end
-end
-puts swap_names("Felicia Torres")
-puts vowel_next("Felicia Torres")
+	return transformed_name	
+end 
+
+p next_vowel("Felicia Torres")
+
+
+

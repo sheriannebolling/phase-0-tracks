@@ -14,38 +14,42 @@ Test "Felicia Torres" which should become "Vussit Gimodoe"
 
 #Method swaps first and last name
 
-
 def swap_names(name)
 	name.downcase!
 	name_array = name.split
 	name_array.reverse!	
 	name = name_array.join(" ")
+	p name
 	chars = name.split(//)
 	p chars
 end
 
-p swap_names("Felicia Torres")
 
 
 
 
-def next_vowel (name)
-	name.downcase!	
-	index = 0
-	transformed_name = ""
-	vowels = "aeiou"
-	while index < name.length
-		name_index = name[index]
-		vowels_index = vowels[index]
-		if name_index == vowels.each_char
-			transformed_name = vowels[index].next
-		end
-		index += 1
-	end
-	return transformed_name	
-end 
+#User interface
 
-p next_vowel("Felicia Torres")
+puts "Would you like to get an alias name? Type yes to continue or type quit to exit program"
+get_name = gets.chomp
 
+if get_name == "quit"
+	puts "Ok no problem"
+elsif get_name == "yes"
+	get_name == "yes"
+else 
+	puts "I dont understand"
+end
+
+while get_name == "yes"
+		puts "What is the first and last name would you like to get an alias for?"
+		name = gets.chomp
+		swap_names(name)
+
+		puts "Would you like to get an alias name, type yes to continue or type quit to exit program"
+		get_name = gets.chomp	
+end
+
+puts "Thank you for using the alias-master!"
 
 

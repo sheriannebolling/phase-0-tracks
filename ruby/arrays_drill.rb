@@ -26,7 +26,6 @@ dogs.shift
 p dogs
 
 p "Dogs includes Mashed potatoes:" + " " + dogs.include?("Mashed potatoes").to_s
-p dogs
 
 cats= []
 p cats

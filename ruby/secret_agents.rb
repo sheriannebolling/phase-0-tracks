@@ -60,8 +60,8 @@ end
 
 =begin
 Ask encrypt or decrypt
-Assign to variable
-Ask what password they would like to enter
+Assign to a variable
+Ask for password they would like to enter
 If encrypt run encrypt with encrypt password
 Elsif decrypt run decrypt with decrypt password
 Else we don't understand

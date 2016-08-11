@@ -15,6 +15,8 @@ Test "Felicia Torres" which should become "Vussit Gimodoe"
 #Method swaps first and last name
 
 def swap_names(name)
+	alias_names = {}
+	alias_names[:name] = name
 	name.downcase!
 	name_array = name.split
 	name_array.reverse!	
@@ -22,15 +24,14 @@ def swap_names(name)
 	p name
 	chars = name.split(//)
 	p chars
+	chars.map! { |letter| letter.next }
+	p chars
 	new_name = chars.join
-	alias_names = {}
-
-	alias_names.each {|real_name, fake_name| puts "#{real_name} is the real name of #{fake_name}" }
-end
-
-
-
-
+	alias_names[:new_name] = new_name
+	p alias_names
+	print_names {|real_name, fake_name| puts "#{fake_name} is actually #{real_name}"}
+	print_names([:name], [:new_name])
+end 
 
 #User interface
 

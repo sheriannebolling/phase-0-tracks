@@ -16,29 +16,23 @@ Test "Felicia Torres" which should become "Vussit Gimodoe"
 
 def swap_names(name)
 	alias_names = {}
-	alias_names[:name] = name
 	name.downcase!
 	name_array = name.split
 	name_array.reverse!	
-	name = name_array.join(" ")
-	p name
-	chars = name.split(//)
-	p chars
-	chars.map! { |letter| letter.next }
-	p chars
-	new_name = chars.join
-	alias_names[:new_name] = new_name
+	new_name = name_array.join(" ")
+	p new_name
+	alias_names[:"#{new_name}"] = name
 	p alias_names
 end 
 
-p swap_names("bolling sherianne")
+p swap_names("sherianne bolling")
 
 
 def new_letter(input)
 	index = 0
 	transformed_input = ""
-	vowels = "aeiouy"
-	consonants = "bcdfghjklmnpqrstvwxz"
+	vowels = "aeiouya"
+	consonants = "bcdfghjklmnpqrstvwxzb"
 	while index < input.length
 		current_letter = input[index]
 		if current_letter == " "
@@ -57,7 +51,7 @@ def new_letter(input)
 	return transformed_input	
 end
 
-p new_letter("bolling sherianne")
+p new_letter("bollinz sherianny")
 
 
 #User interface

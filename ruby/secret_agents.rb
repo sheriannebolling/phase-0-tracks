@@ -61,7 +61,7 @@ end
 =begin
 Ask encrypt or decrypt
 Assign to variable
-Ask for password they would like to enter
+Ask what password they would like to enter
 If encrypt run encrypt with encrypt password
 Elsif decrypt run decrypt with decrypt password
 Else we don't understand

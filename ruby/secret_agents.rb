@@ -25,6 +25,7 @@ Set transformed input index = alphabet found index - 1
 def encrypt(input)
 	index = 0
 	transformed_input = ""
+	current_letter = ""
 
 	while index < input.length
 		if input[index] == " "
@@ -59,7 +60,7 @@ end
 
 =begin
 Ask encrypt or decrypt
-Assign to variable
+Assign to a variable
 Ask for password they would like to enter
 If encrypt run encrypt with encrypt password
 Elsif decrypt run decrypt with decrypt password
@@ -83,13 +84,13 @@ else
 end
 
 
-=begin
-puts encrypt("abc")
-puts encrypt("zed")
-puts decrypt("bcd")
-puts decrypt("afe")
+#test logic
+puts encrypt("abc") #should return "bcd"
+puts encrypt("zed") #should return "afe""
+puts decrypt("bcd") #should return "abc"
+puts decrypt("afe") #should return "zed"
 
-This is a nested method call which works by ruby evaluating what is in the innermost paranthesis first. 
-
+#This is a nested method call which works by ruby evaluating what is in the innermost paranthesis first. 
+#should return "swordfih"
 puts decrypt(encrypt("swordfish"))
-=end
+

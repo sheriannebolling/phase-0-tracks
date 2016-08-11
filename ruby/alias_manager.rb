@@ -12,24 +12,49 @@ Return string with first letter uppercase
 Test "Felicia Torres" which should become "Vussit Gimodoe"
 =end 
 
+#Method swaps first and last name
 
 def swap_names(name)
+	alias_names = {}
+	alias_names[:name] = name
+	name.downcase!
 	name_array = name.split
-	name_array.reverse!
-	return name_array
+	name_array.reverse!	
+	name = name_array.join(" ")
+	p name
+	chars = name.split(//)
+	p chars
+	chars.map! { |letter| letter.next }
+	p chars
+	new_name = chars.join
+	alias_names[:new_name] = new_name
+	p alias_names
+	print_names {|real_name, fake_name| puts "#{fake_name} is actually #{real_name}"}
+	print_names([:name], [:new_name])
+end 
+
+#User interface
+
+puts "Would you like to get an alias name? Type yes to continue or type quit to exit program"
+get_name = gets.chomp
+
+if get_name == "quit"
+	puts "Ok no problem"
+elsif get_name == "yes"
+	get_name == "yes"
+else 
+	puts "I dont understand"
 end
 
-def vowel_next(name)
-	index = 0
-	vowel = "aeiou"
-	consonant = "bcdfghjklmnpqrstvwxz"
-	while index < name.length 
-		letters = name.split
-		if letters == consonant
-			letters.next
-		end
-		index += 1
-	end
+while get_name == "yes"
+		puts "What is the first and last name would you like to get an alias for?"
+		name = gets.chomp
+		swap_names(name)
+
+		puts "Would you like to get an alias name, type yes to continue or type quit to exit program"
+		get_name = gets.chomp	
 end
-puts swap_names("Felicia Torres")
-puts vowel_next("Felicia Torres")
+
+puts "Thank you for using the alias-master!"
+
+

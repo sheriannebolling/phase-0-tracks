@@ -29,9 +29,36 @@ def swap_names(name)
 	new_name = chars.join
 	alias_names[:new_name] = new_name
 	p alias_names
-	print_names {|real_name, fake_name| puts "#{fake_name} is actually #{real_name}"}
-	print_names([:name], [:new_name])
 end 
+
+p swap_names("bolling sherianne")
+
+
+def new_letter(input)
+	index = 0
+	transformed_input = ""
+	vowels = "aeiouy"
+	consonants = "bcdfghjklmnpqrstvwxz"
+	while index < input.length
+		current_letter = input[index]
+		if current_letter == " "
+			transformed_input[index] = " "
+		elsif
+			vowel_index = vowels.index(current_letter) 
+			new_vowel_index = vowel_index.to_i+1
+			transformed_input[index] = vowels[new_vowel_index]
+		else
+			consonant_index = consonants.index(current_letter) 
+			new_consonant_index = consonant_index.to_i+1
+			transformed_input[index] = consonants[new_consonant_index]
+		end
+		index += 1
+	end
+	return transformed_input	
+end
+
+p new_letter("bolling sherianne")
+
 
 #User interface
 

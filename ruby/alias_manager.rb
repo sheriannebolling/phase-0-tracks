@@ -50,39 +50,41 @@ def swap_names(input)
 		name_array.reverse!
 		new_name = name_array.join(" ")
 		new_name.capitalize!
-		name_hash = {}	  
-		name_hash[new_name] = input.capitalize!
-		name_hash.each_pair do 
-			|new_name, input| puts "#{new_name}" + " " + "is actually" + " " + "#{input}!"
-		end	
+		
 end 
 
 #Test code - should return:  "Vussit gimodoe is actually Felicia torres"
-p swap_names("Felicia Torres")
+#p swap_names("Felicia Torres")
 
 
 #Exit interface when user types quit
 puts "Would you like to get an alias name? Type yes to continue or type quit to exit."
 get_name = gets.chomp
 
-if get_name == "quit"
-	puts "Ok no problem"
-elsif get_name == "yes"
-	get_name == "yes"
-else 
-	puts "I dont understand"
-end
 
 #Loop through user interface 
 while get_name == "yes"
 		puts "What is the first and last name you like to get an alias for?"
 		input = gets.chomp
 		swap_names(input)
+		name_hash = {}
+		name_hash.merge!(input => swap_names(input))
+		p swap_names(input)	
 
 		puts "Would you like to get an alias name, type yes to continue or type quit to exit."
 		get_name = gets.chomp
-end
 
+		if get_name == "quit"
+		puts "Ok no problem"
+		name_hash.each_pair do 
+			|input, new_name| puts "#{new_name}" + " " + "is actually" + " " + "#{input}!"
+		end	
+		elsif get_name == "yes"
+		get_name == "yes"
+		else 
+		puts "I dont understand"
+		end
+end
 
 puts "Thank you for using the alias-master!"
 
@@ -91,11 +93,7 @@ puts "Thank you for using the alias-master!"
 =begin
 I was unable to get the hash to store multiple keys and values. It seems that as soon as the method
 runs a second time the key and value are saved over. I tried a few different ways to add keys and values but
-couldn't get it to work so this was as far as I was able to it working. 
-
-I tried alternately to iterate through the hash at the end of the program in the if statement but couldn't figure 
-out how to get the hash to access info from the method without getting errors that those variable weren't accessable.
-I imagine this is a problem I am having with the scope. 
+couldn't get it to work so this was as far as I was able to get it. 
 
 I was able to capitalize the first letters in the names when running the program but I know .capitalize
 only capitalizes the first letter in a string. I tried finding a way to capitalize them when they were split into two 

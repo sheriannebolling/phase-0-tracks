@@ -15,40 +15,48 @@ Test "Felicia Torres" which should become "Vussit Gimodoe"
 #Method swaps first and last name
 
 def swap_names(input)
-	input.downcase!
-	index = 0
-	transformed_input = ""
-	vowels = "aeiouya"
-	consonants = "bcdfghjklmnpqrstvwxzb"
-	while index < input.length
-		current_letter = input[index]
-		if current_letter == " "
-			transformed_input[index] = " "
-		elsif
-			vowel_index = vowels.index(current_letter) 
-			new_vowel_index = vowel_index.to_i+1
-			transformed_input[index] = vowels[new_vowel_index]
-		else
-			consonant_index = consonants.index(current_letter) 
-			new_consonant_index = consonant_index.to_i+1
-			transformed_input[index] = consonants[new_consonant_index]
+		altered_input = input
+		altered_input.downcase!
+		index = 0
+		transformed_input = ""
+		vowels = "aeiouya"
+		consonants = "bcdfghjklmnpqrstvwxzb"
+		while index < altered_input.length
+			current_letter = altered_input[index]
+			if current_letter == " "
+				transformed_input[index] = " "
+			elsif
+				vowel_index = vowels.index(current_letter) 
+				new_vowel_index = vowel_index.to_i+1
+				transformed_input[index] = vowels[new_vowel_index]
+			else
+				consonant_index = consonants.index(current_letter) 
+				new_consonant_index = consonant_index.to_i+1
+				transformed_input[index] = consonants[new_consonant_index]
+			end
+			index += 1
 		end
-		index += 1
-	end
-	name = transformed_input
-	alias_names = {}
-	name_array = name.split
-	name_array.reverse!	
-	new_name = name_array.join(" ")
-	alias_names[:"#{new_name}"] = input
-	p new_name
+		transformed_name = transformed_input
+		name = transformed_name.capitalize!
+		name_array = name.split
+		name_array.reverse!
+		new_name = name_array.join(" ")
+		new_name.capitalize!
+		name_hash = {}	  
+		name_hash[new_name] = input.capitalize!
+		p name_hash	
+		name_hash.each_pair do 
+			|new_name, input| puts "#{new_name}" + " " + "is actually" + " " + "#{input}!"
+		end	
 end 
 
+#Test code - should return:  "Vussit gimodoe is actually Felicia torres"
+p swap_names("Felicia Torres")
 
 
 #User interface
 
-puts "Would you like to get an alias name? Type yes to continue or type quit to exit program"
+puts "Would you like to get an alias name? Type yes to continue or type quit to exit."
 get_name = gets.chomp
 
 if get_name == "quit"
@@ -59,15 +67,16 @@ else
 	puts "I dont understand"
 end
 
+
 while get_name == "yes"
-		puts "What is the first and last name would you like to get an alias for?"
+		puts "What is the first and last name you like to get an alias for?"
 		input = gets.chomp
 		swap_names(input)
 
-		puts "Would you like to get an alias name, type yes to continue or type quit to exit program"
-		get_name = gets.chomp	
+		puts "Would you like to get an alias name, type yes to continue or type quit to exit."
+		get_name = gets.chomp
 end
 
-puts "Thank you for using the alias-master!"
 
+puts "Thank you for using the alias-master!"
 

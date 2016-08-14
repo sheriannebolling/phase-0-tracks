@@ -107,5 +107,5 @@ I was able to capitalize the first letters in the names when running the program
 only capitalizes the first letter in a string. I tried finding a way to capitalize them when they were split into two 
 arrays when I swapped the names but didn't succeed in finding a way. 
 
-I am submitting as is for now and plan to spend more time figuring these solutions out as I continue through phase 0.
+I am submitting as is for now and plan to spend more time figuring this solution out.
 =end

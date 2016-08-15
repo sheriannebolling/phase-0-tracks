@@ -32,13 +32,9 @@ end
 #Method swaps first and last name
 #Changes vowels to next vowel
 #Changes consonants to next consonant
-#Changes first letters to caps splitting into arrays using .map 
 def swap_names(input, hash)
 		new_hash = hash
 		altered_input = input
-		input_array = input.split
-		input_array.map!(&:capitalize!)
-		input_caps = input_array.join(" ")
 		altered_input.downcase!
 		index = 0
 		transformed_input = ""
@@ -60,11 +56,12 @@ def swap_names(input, hash)
 			index += 1
 		end
 		transformed_name = transformed_input
-		name_array = transformed_name.split
+		name = transformed_name.capitalize!
+		name_array = name.split
 		name_array.reverse!
-		name_array.map!(&:capitalize!)
 		new_name = name_array.join(" ")
-		add_name_to_hash(input_caps, new_name, new_hash)
+		new_name.capitalize!
+		add_name_to_hash(input, new_name, new_hash)
 end 
 
 #Test code - should return:  "Vussit gimodoe is actually Felicia torres"
@@ -102,4 +99,16 @@ while get_name == "yes"
 end
 
 puts "Thank you for using the alias-master!"
+
+
+#notes
+=begin
+I was able to capitalize the first letters in the names when running the program but I know .capitalize
+only capitalizes the first letter in a string. I tried finding a way to capitalize them when they were split into two 
+arrays when I swapped the names and tried .map which worked but found there was a bug - when the user
+enters their name with caps it would not save the name at all. 
+
+I am submitting as is for now and plan to spend more time figuring out this solutions.
+=end
+
 

@@ -22,6 +22,7 @@ Iterate through hash printing real and fake names in if/else statement
 
 #Create hash to hold real and fake names
 #Create method to add real and fake names to hash
+#Use .map to capitalize 
 name_hash = {}
 
 def add_name_to_hash(real_name, fake_name, hash)
@@ -59,8 +60,8 @@ def swap_names(input, hash)
 		name = transformed_name.capitalize!
 		name_array = name.split
 		name_array.reverse!
+		name_array.map(&:capitalize!)
 		new_name = name_array.join(" ")
-		new_name.capitalize!
 		add_name_to_hash(input, new_name, new_hash)
 end 
 
@@ -99,16 +100,4 @@ while get_name == "yes"
 end
 
 puts "Thank you for using the alias-master!"
-
-
-#notes
-=begin
-I was able to capitalize the first letters in the names when running the program but I know .capitalize
-only capitalizes the first letter in a string. I tried finding a way to capitalize them when they were split into two 
-arrays when I swapped the names and tried .map which worked but found there was a bug - when the user
-enters their name with caps it would not save the name at all. 
-
-I am submitting as is for now and plan to spend more time figuring out this solutions.
-=end
-
 

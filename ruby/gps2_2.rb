@@ -25,7 +25,7 @@ grocery_list("Lemonade Milk", hash)
 # steps:Take string as an argument with an optional qantity number. Add into hash. Takes a default value.
 # output: Print the updated hash
 
-#Add item method
+#Add item method 
 def add_item_to_list(string, quantity, hash)
 	hash[string.to_sym] =  (hash[string.to_sym] || 0)  + quantity
 	p hash
@@ -34,6 +34,7 @@ end
 #Test add method
 add_item_to_list("Apple", 5, hash)
 add_item_to_list("Milk", 5, hash)
+add_item_to_list("OJ", 3, hash)
 
 # Method to remove an item from the list
 # input: item name and hash
@@ -60,6 +61,16 @@ subtract_from_list("Milk", hash)
 
 
 # Method to print a list and make it look pretty
-# input:
-# steps:
-# output:
+# input: hash
+# steps: use .each_pair to print list
+# output: Grocery list of items in hash
+
+def print_hash(hash)
+	puts "Grocery List:"
+	hash.each_pair do 
+		|item, quantity| puts "#{item}: Get #{quantity}"
+	end
+end
+
+print_hash(hash)
+

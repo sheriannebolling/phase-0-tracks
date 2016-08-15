@@ -32,9 +32,13 @@ end
 #Method swaps first and last name
 #Changes vowels to next vowel
 #Changes consonants to next consonant
+#Changes first letters to caps splitting into arrays using .map 
 def swap_names(input, hash)
 		new_hash = hash
 		altered_input = input
+		input_array = input.split
+		input_array.map!(&:capitalize!)
+		input_caps = input_array.join(" ")
 		altered_input.downcase!
 		index = 0
 		transformed_input = ""
@@ -56,12 +60,11 @@ def swap_names(input, hash)
 			index += 1
 		end
 		transformed_name = transformed_input
-		name = transformed_name.capitalize!
-		name_array = name.split
+		name_array = transformed_name.split
 		name_array.reverse!
+		name_array.map!(&:capitalize!)
 		new_name = name_array.join(" ")
-		new_name.capitalize!
-		add_name_to_hash(input, new_name, new_hash)
+		add_name_to_hash(input_caps, new_name, new_hash)
 end 
 
 #Test code - should return:  "Vussit gimodoe is actually Felicia torres"

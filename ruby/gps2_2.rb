@@ -18,7 +18,7 @@ def grocery_list(string, hash)
 end
 
 #Test grocery_list method
-grocery_list("Lemonade Milk", hash)
+#grocery_list("Lemonade Milk", hash)
 
 # Method to add an item to a list
 # input: item name, optional quantity, hash
@@ -32,9 +32,11 @@ def add_item_to_list(string, quantity, hash)
 end
 
 #Test add method
-add_item_to_list("Apple", 5, hash)
-add_item_to_list("Milk", 5, hash)
-add_item_to_list("OJ", 3, hash)
+
+add_item_to_list("Lemonade", 2, hash)
+add_item_to_list("Tomatoes", 3, hash)
+add_item_to_list("Onions", 1, hash)
+add_item_to_list("Ice Cream", 4, hash)
 
 # Method to remove an item from the list
 # input: item name and hash
@@ -51,14 +53,21 @@ def subtract_from_list(string, hash)
 end
 
 #Test subtract item
-subtract_from_list("Milk", hash)
+subtract_from_list("Lemonade", hash)
 
 # Method to update the quantity of an item
-# input: 
+# input: item, quantity, hash
 # steps: 
-# output:
+# output: hash with updated quantity of item
 
+def update_quantity(string, quantity, hash)
+	hash[string.to_sym]
+	hash.merge!(string.to_sym => quantity)
+	p hash
+end
 
+#Test update quantity
+update_quantity("Ice Cream", 1, hash)
 
 # Method to print a list and make it look pretty
 # input: hash

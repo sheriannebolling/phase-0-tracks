@@ -103,12 +103,3 @@ end
 
 puts "Thank you for using the alias-master!"
 
-
-#notes
-=begin
-I was able to capitalize the first letters in the names when running the program but I know .capitalize
-only capitalizes the first letter in a string. I tried finding a way to capitalize them when they were split into two 
-arrays when I swapped the names but didn't succeed in finding a way. 
-
-I am submitting as is for now and plan to spend more time figuring this solution out.
-=end

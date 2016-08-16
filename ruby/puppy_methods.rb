@@ -1,9 +1,6 @@
-
 class Puppy
   def initialize 
     puts "Initializing new puppy instance ..."
-  end
-    
   end
 
   def fetch(toy)
@@ -14,7 +11,7 @@ class Puppy
   def speak(integer)
     integer.times do |i|
     puts "Woof!"
-  end
+  	end
   end
   
   def roll_over
@@ -22,8 +19,8 @@ class Puppy
   end
 
   def dog_years(integer)
-  dog_age = integer * 7
-  puts "The dog is #{dog_age} years old!"
+  	dog_age = integer * 7
+  	puts "The dog is #{dog_age} years old!"
   end
 
   def growls
@@ -63,8 +60,15 @@ Charles = Baby.new
 Charles.cry
 Charles.coo(4)
 
+baby_list = 50.times.collect{Baby.new}
+p baby_list
 
-50.times do
-  Baby.new
+def baby_cry(list)
+	list.each do
+	p "hello"
+	end
 end
+	
+baby_cry(baby_list)
+
 

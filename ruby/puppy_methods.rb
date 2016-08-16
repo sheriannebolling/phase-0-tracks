@@ -65,10 +65,10 @@ p baby_list
 
 def baby_cry(list)
 	list.each do
-	p "hello"
 	end
 end
 	
 baby_cry(baby_list)
 
+baby_list.map!(&:cry)
 

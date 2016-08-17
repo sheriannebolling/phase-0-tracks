@@ -1,3 +1,4 @@
+#Define Santa class and give it 3 instance methods and some attributes.
 class Santa
 	def initialize (gender, ethnicity)
 		puts "Initializing Santa instance ..."
@@ -25,27 +26,20 @@ class Santa
 	end
 end
 
-#santa_1 = Santa.new
+#Driver code to test class and methods
+santa_1 = Santa.new("Cisgender", "Native Hawaiian")
+santa_1.speak
+santa_1.eat_milk_and_cookies("chocolate chip cookie")
 
-#santa_1.speak
-#santa_1.eat_milk_and_cookies("chocolate chip cookie")
 
-=begin
+#Driver code of diverse initializations
 santas = []
-santas << Santa.new("agender", "black")
-santas << Santa.new("female", "Latino")
-santas << Santa.new("bigender", "white")
-santas << Santa.new("male", "Japanese")
-santas << Santa.new("female", "prefer not to say")
-santas << Santa.new("gender fluid", "Mystical Creature (unicorn)")
-santas << Santa.new("N/A", "N/A")
-=end
-
-santas = []
-santa_gender = ["Female", "Male", "Agender", "Bigender", "Androgyne", "Androgynous", "Cisgender"]
-santa_ethnicities = ["Black", "Latino", "White", "Asian", "American Indian", "Alaskan Native", "Native Hawaiian"]
+santa_gender = ["Female", "Male", "Agender", "Bigender", "Androgynous"]
+santa_ethnicities = ["Black", "Latino", "White", "American Indian", "Alaskan Native"]
 santa_gender.length.times do |i|
 	santas << Santa.new(santa_gender[i], santa_ethnicities[i])
 end
+
+santas << Santa.new("Gender Fluid", "Asian")
 
 p santas

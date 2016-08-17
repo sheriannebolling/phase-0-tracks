@@ -1,5 +1,7 @@
 #Define Santa class and give it instance methods and some attributes.
 class Santa
+	attr_reader :ethnicity, :age
+	attr_accessor :gender
 	def initialize (gender, ethnicity)
 		puts "Initializing Santa instance ..."
 		@gender = gender
@@ -34,17 +36,17 @@ class Santa
 		@reindeer_ranking.push(reindeer_name)
 	end
 
-	def gender=(new_gender)
-		@gender = new_gender
-	end
+	#def gender=(new_gender)
+		#@gender = new_gender
+	#end
 
-	def age
-		@age 
-	end
+	#def age
+		#@age
+	#end
 
-	def ethnicity
-		@ethnicity 
-	end
+	#def ethnicity
+		#@ethnicity 
+	#end
 end
 
 #Driver code to test class and methods
@@ -58,19 +60,19 @@ santa_1.speak
 #Should return: That was a good chocolate chip cookie!
 santa_1.eat_milk_and_cookies("chocolate chip cookie")
 
-#Driver code of diverse initializations
+#Initialization of 50 santas with random ethnicities and random genders
 santas = []
-santa_gender = ["Female", "Male", "Agender", "Bigender", "Androgynous"]
-santa_ethnicities = ["Black", "Latino", "White", "American Indian", "Alaskan Native"]
-santa_gender.length.times do |i|
-	santas << Santa.new(santa_gender[i], santa_ethnicities[i])
+santa_ethnicities = ["black", "Latino", "white", "Japanese-African", "prefer not to say", "Mystical Creature (unicorn)", "N/A"]
+santa_gender = ["agender", "female", "bigender", "male", "female", "gender fluid", "N/A"]
+santa_age = (rand(141)).to_s
+
+50.times do |i|
+	santas << Santa.new(santa_gender.sample, santa_ethnicities.sample)
 end
+
 
 #Should push a new Santa in santas array with @gender = "Gender Fluid" and @ethnicity = "Asian"
 santas << Santa.new("Gender Fluid", "Asian")
-
-#Should print array of santas
-#p santas
 
 #Should add a year each to birthday
 santa_1.celebrate_birthday
@@ -92,4 +94,5 @@ p santa_1
 #Driver code for getter methods
 puts "The first santa is #{santa_1.age} years old and 
 identifies as #{santa_1.ethnicity}."
+
 

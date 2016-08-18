@@ -66,13 +66,17 @@ santa_ethnicities = ["black", "Latino", "white", "Japanese-African", "prefer not
 santa_gender = ["agender", "female", "bigender", "male", "female", "gender fluid", "N/A"]
 santa_age = []
 
-50.times do |i|
-	santas << Santa.new(santa_gender.sample, santa_ethnicities.sample, santa_age = rand(141))
-end
+#50.times do |i|
+#	santas << Santa.new(santa_gender.sample, santa_ethnicities.sample, santa_age = rand(141))
+#end
 
 #Should push a new Santa in santas array with @gender = "Gender Fluid" and @ethnicity = "Asian"
 santas << Santa.new("Gender Fluid", "Asian", 94)
-p santas 
+p santas
+
+#50.times do |i|
+#p Santa.new(santa_gender.sample, santa_ethnicities.sample, santa_age = rand(141))
+#end
 
 #Should add a year to age
 santa_claus.celebrate_birthday 

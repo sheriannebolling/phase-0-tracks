@@ -4,7 +4,7 @@ Truck
 
 Attributes ----------------
 Color: varies
-Size: varies
+Transmission: varies
 Age: varies
 
 Methods -----------------------
@@ -56,3 +56,32 @@ f100.go_fast(80)
 f100.honk
 f100.turn("right")
 f100.stop
+
+#User interface
+
+truck_array =[]
+
+puts "Would you like to create a new truck? (type yes or no)"
+create_truck = gets.chomp
+
+while create_truck == "yes"
+	puts "What color would you like your truck to be?"
+	truck_color = gets.chomp
+
+	puts "Would you like a manual or automatic transmission?"
+	truck_transmission = gets.chomp
+
+	puts "How old of a truck would you like?"
+	truck_age = gets.chomp
+
+	truck_array << Truck.new(truck_color, truck_transmission, truck_age)
+
+	puts "Would you like to create a new truck? (type yes or no)"
+	create_truck = gets.chomp
+
+	if create_truck == "no"
+	p truck_array
+	end
+end
+
+

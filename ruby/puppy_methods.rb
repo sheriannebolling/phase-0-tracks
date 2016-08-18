@@ -9,7 +9,7 @@ class Puppy
   end
   
   def speak(integer)
-    integer.times do |i|
+    integer.times do |speak|
     puts "Woof!"
   	end
   end
@@ -49,18 +49,23 @@ class Baby
   end
 
   def coo(integer)
-    integer.times do |i|
+    integer.times do |coo|
     puts "coooooo!"
-  end
+    end
   end
 
 end
 
-Charles = Baby.new
-Charles.cry
-Charles.coo(4)
+charles = Baby.new
+charles.cry
+charles.coo(4)
 
-baby_list = 50.times.collect{Baby.new}
+baby_list = []
+
+50.times do |baby|
+  baby_list << Baby.new
+end
+
 p baby_list
 
 def baby_cry(list)

@@ -81,28 +81,19 @@ p santa_claus
 puts "Santa Claus #{santa_claus.age} years old and 
 identifies as #{santa_claus.ethnicity}."
 
-<<<<<<< HEAD
-=======
-
->>>>>>> week-6
 #Initialization of 50 santas with random ethnicities, random genders, and random ages up to 141.
 santas = []
-
 santa_ethnicities = ["black", "Latino", "white", "Japanese-African", "prefer not to say", "Mystical Creature (unicorn)", "N/A"]
 santa_gender = ["agender", "female", "bigender", "male", "female", "gender fluid", "N/A"]
 santa_age = []
 
-<<<<<<< HEAD
+
 50.times do |santa|
-=======
-50.times do |i|
->>>>>>> week-6
 	santas << Santa.new(santa_gender.sample, santa_ethnicities.sample, santa_age = rand(141))
 end
 
 #Should push a new Santa in santas array with @gender = "Gender Fluid" and @ethnicity = "Asian"
 santas << Santa.new("Gender Fluid", "Asian", 94)
-<<<<<<< HEAD
 #p santas
 
 #Iterate through santas and print attributes
@@ -111,17 +102,6 @@ santas.each do |santa|
 end
 
 
-
-
-
-=======
-p santas
-
-#Iterate through santas and print attributes
-santas.each do |santa|
-	p "This santa is #{santa.age} years old and identifies as #{santa.ethnicity} and #{santa.gender}."
-end
->>>>>>> week-6
 
 
 

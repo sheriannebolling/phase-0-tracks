@@ -66,14 +66,11 @@ baby_list = []
   baby_list << Baby.new
 end
 
-p baby_list
+#p baby_list
 
-def baby_cry(list)
-	list.each do
-	end
+baby_list.each do |baby|
+  baby.cry
+  baby.coo(2)
 end
-	
-baby_cry(baby_list)
 
-baby_list.map!(&:cry)
 

@@ -26,7 +26,7 @@ module Shout
   	end
 end
 
-#Classes that Shout module
+#Classes that include Shout module
 class Grumpy_neighbor
 	include Shout
 end

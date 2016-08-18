@@ -15,6 +15,7 @@ p Shout.yelling_happily("Hello there")
 p Shout.yell_angrily("Ok, now go away")
 =end
 
+#Mixin version of Shout module
 module Shout
 	def yell_angrily(words)
 		words + "!!!" + " :("
@@ -25,6 +26,7 @@ module Shout
   	end
 end
 
+#Classes that Shout module
 class Grumpy_neighbor
 	include Shout
 end
@@ -33,10 +35,12 @@ class Crossing_guard
 	include Shout
 end
 
-
+#Initiate instances of classes
 chris = Grumpy_neighbor.new
 tom = Crossing_guard.new
 
+
+#Call both methods for each instance
 p chris.yell_angrily("Get off my lawn")
 p chris.yelling_happily("Sorry I am so rude")
 

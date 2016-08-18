@@ -15,7 +15,7 @@ Rev
 Stop
 =end
 
-#Create truck class
+#Create truck class with attributes and methods
 class Truck
 	attr_reader :age
 	attr_accessor :transmission, :color
@@ -47,6 +47,7 @@ class Truck
 	end
 end
 
+#Create new instance of truck 
 f100 = Truck.new("red", "manual", 50)
 
 #Driver code to test 
@@ -80,11 +81,10 @@ while create_truck == "yes"
 	create_truck = gets.chomp
 
 	if create_truck == "no"
-	 truck_array.each {|i| puts "You have created a #{truck_color} #{truck_transmission} #{truck_age} year old truck"}
+	 truck_array.each {|truck| puts "You have created a #{truck.color} #{truck.transmission} #{truck.age} year old truck"}
 	end
-	
 
-	p truck_array
+	#p truck_array
 end
 
 

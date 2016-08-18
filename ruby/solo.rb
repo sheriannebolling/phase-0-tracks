@@ -74,14 +74,18 @@ while create_truck == "yes"
 	puts "How old of a truck would you like?"
 	truck_age = gets.chomp
 
-	truck_array << Truck.new(truck_color, truck_transmission, truck_age)
+	truck_array << Truck.new(truck_color, truck_transmission, truck_age.to_i)
 
 	puts "Would you like to create a new truck? (type yes or no)"
 	create_truck = gets.chomp
 
 	if create_truck == "no"
-	p truck_array
+	 truck_array.each {|i| puts "You have created a #{truck_color} #{truck_transmission} #{truck_age} year old truck"}
 	end
+	
+
+	p truck_array
 end
+
 
 

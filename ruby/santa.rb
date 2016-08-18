@@ -2,7 +2,7 @@
 class Santa
 	attr_reader :ethnicity, :age
 	attr_accessor :gender
-	def initialize (gender, ethnicity)
+	def initialize (gender, ethnicity, age)
 		puts "Initializing Santa instance ..."
 		@gender = gender
 		@ethnicity = ethnicity
@@ -16,7 +16,7 @@ class Santa
 			"Cupid", 
 			"Donner", 
 			"Blitzen"]
-		@age = 0
+		@age = age
 	end
 
 	def speak
@@ -52,47 +52,55 @@ end
 #Driver code to test class and methods
 
 #Should make a new Santa instance santa_1 with @gender = "Cisgender" and @ethnicity = "Native Hawaiian"
-santa_1 = Santa.new("Cisgender", "Native Hawaiian")
+santa_claus = Santa.new("Cisgender", "Native Hawaiian", 83)
+p santa_claus
 
 #Should return: Ho, ho, ho! Haaaappy holidays!
-santa_1.speak
+santa_claus.speak
 
 #Should return: That was a good chocolate chip cookie!
-santa_1.eat_milk_and_cookies("chocolate chip cookie")
+santa_claus.eat_milk_and_cookies("chocolate chip cookie")
 
-#Initialization of 50 santas with random ethnicities and random genders
-santas = []
-santa_ethnicities = ["black", "Latino", "white", "Japanese-African", "prefer not to say", "Mystical Creature (unicorn)", "N/A"]
-santa_gender = ["agender", "female", "bigender", "male", "female", "gender fluid", "N/A"]
-santa_age = (rand(141)).to_s
-
-50.times do |i|
-	santas << Santa.new(santa_gender.sample, santa_ethnicities.sample)
-end
-
-
-#Should push a new Santa in santas array with @gender = "Gender Fluid" and @ethnicity = "Asian"
-santas << Santa.new("Gender Fluid", "Asian")
-
-#Should add a year each to birthday
-santa_1.celebrate_birthday
-santa_1.celebrate_birthday 
-p santa_1
+#Should add a year to age
+santa_claus.celebrate_birthday 
+p santa_claus
 
 #Should put "Rudolph" at the end of array
-santa_1.get_mad_at("Rudolph")
-p santa_1
+santa_claus.get_mad_at("Rudolph")
+p santa_claus
 
 #Should put "Vixen" at the end of array
-santa_1.get_mad_at("Vixen")
-p santa_1
+santa_claus.get_mad_at("Vixen")
+p santa_claus
 
 #Driver code for setter method
-santa_1.gender = "Female"
-p santa_1
+santa_claus.gender = "Female"
+p santa_claus
 
 #Driver code for getter methods
-puts "The first santa is #{santa_1.age} years old and 
-identifies as #{santa_1.ethnicity}."
+puts "Santa Claus #{santa_claus.age} years old and 
+identifies as #{santa_claus.ethnicity}."
+
+
+#Initialization of 50 santas with random ethnicities, random genders, and random ages up to 141.
+santas = []
+
+santa_ethnicities = ["black", "Latino", "white", "Japanese-African", "prefer not to say", "Mystical Creature (unicorn)", "N/A"]
+santa_gender = ["agender", "female", "bigender", "male", "female", "gender fluid", "N/A"]
+santa_age = []
+
+50.times do |i|
+	santas << Santa.new(santa_gender.sample, santa_ethnicities.sample, santa_age = rand(141))
+end
+
+#Should push a new Santa in santas array with @gender = "Gender Fluid" and @ethnicity = "Asian"
+santas << Santa.new("Gender Fluid", "Asian", 94)
+p santas
+
+#Iterate through santas and print attributes
+santas.each do |santa|
+	p "This santa is #{santa.age} years old and identifies as #{santa.ethnicity} and #{santa.gender}."
+end
+
 
 

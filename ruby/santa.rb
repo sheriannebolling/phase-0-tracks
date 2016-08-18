@@ -87,7 +87,7 @@ santa_ethnicities = ["black", "Latino", "white", "Japanese-African", "prefer not
 santa_gender = ["agender", "female", "bigender", "male", "female", "gender fluid", "N/A"]
 santa_age = []
 
-50.times do |i|
+50.times do |santa|
 	santas << Santa.new(santa_gender.sample, santa_ethnicities.sample, santa_age = rand(141))
 end
 

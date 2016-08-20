@@ -6,9 +6,12 @@
 
 
 function reverseString(string){
-	console.log(string);
-	for (i = string.length; i > -1; i--)
-		console.log(string[i]);
-}
+	var newString =  "";
+	for (var i = string.length; i > -1; i--)
+		newString+=(string[i]);
+		console.log(newString);
+	}
 
-reverseString("Hello");
+reverseString("hello");
+
+

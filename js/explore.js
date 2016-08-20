@@ -13,9 +13,19 @@ function reverseString(string){
 	for (var i = string.length; i > -1; i--)
 		newString+=(string[i]);
 		console.log(newString);
+		return newString;
 	}
 
 //test that the function reverses the string
 reverseString("hello");
 
+//Call reverseString on string and store in variable
+var reverseGreeting = reverseString("How are you doing today?");
 
+//Print variable
+console.log(reverseGreeting);
+
+//Prints variable if condition is true
+if (5){
+	console.log(reverseGreeting);
+}

@@ -7,7 +7,6 @@
 // 4. Add each letter to the empty string variable
 // 5. Print the new string
 
-
 function reverseString(string){
 	var newString =  "";
 	for (var i = string.length; i > -1; i--)
@@ -30,6 +29,8 @@ if (5){
 	console.log(reverseGreeting);
 }
 
-var string = 'hi';
-var strReverse = string.split('').reverse().join('');
-console.log(strReverse);
+//Additional way to reverse and print without using a function which 
+//is a bit cleaner and doesn't show undefined 
+var string = 'Yay for Javascript!';
+var stringReverse = string.split('').reverse().join('');
+console.log(stringReverse);

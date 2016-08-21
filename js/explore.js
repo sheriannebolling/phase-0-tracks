@@ -29,3 +29,7 @@ console.log(reverseGreeting);
 if (5){
 	console.log(reverseGreeting);
 }
+
+var string = 'hi';
+var strReverse = string.split('').reverse().join('');
+console.log(strReverse);

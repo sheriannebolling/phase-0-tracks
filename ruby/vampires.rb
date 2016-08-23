@@ -41,8 +41,7 @@ while employees.to_i > 0 do
 	#Determine if likely a vampire
 	
 	if (youth == true && 
-		(garlic == "yes" || insurance == "yes") || 
-		(garlic == "yes" && insurance == "yes") && 
+		((garlic == "yes" || insurance == "yes")  || (garlic == "yes" || insurance == "yes")) &&
 		(name != "Drake Cula" && name != "Tu Fang" && allergies != "sunshine"))
 		puts "Probably not a vampire."
 	elsif (youth == false && 

@@ -77,7 +77,14 @@ end
 #=======================================================================
 # Reflection Section
 # What are the differences between the two different hash syntaxes shown in the state_data file?
+    #One of the hashes uses strings as the keys which makes it easier for use externally and the other one uses symbols which is better
+    #for internal usage 
 # What does require_relative do? How is it different from require?
+    #Require_relative allows you to load a file relative to the current file you are in. 
+    #Require allows you to load an external file using ruby's built in load path.
 # What are some ways to iterate through a hash?
+    #You can iterate through a hash using .each .each_pair .each_key and .each_value
 # When refactoring virus_effects, what stood out to you about the variables, if anything?
+    #Anytime you have @variable initialized you can use it throughout the class so you don't need to put it in parameters
 # What concept did you most solidify in this challenge?
+    #I am definately better at refactoring now. I like making it more organized and more readable. 

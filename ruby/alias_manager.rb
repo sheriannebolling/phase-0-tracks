@@ -36,7 +36,7 @@ end
 def swap_names(input, hash)
 		new_hash = hash
 		altered_input = input
-		altered_input.downcase!
+		altered_input.downcase
 		index = 0
 		transformed_input = ""
 		vowels = "aeioua"
@@ -62,6 +62,8 @@ def swap_names(input, hash)
 		name_array.reverse!
 		name_array.map(&:capitalize!)
 		new_name = name_array.join(" ")
+
+
 		add_name_to_hash(input, new_name, new_hash)
 end 
 

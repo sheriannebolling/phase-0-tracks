@@ -97,17 +97,53 @@ function match(objectOne, objectTwo){
 	};	
 }
 
-console.log(match(stevenObject, tamirObject));
-console.log(match(shawnObject, harryObject));
-// function printHorses(horseObject, horseArray, colorArray){
-// 	for(var i = 0; i < horseArray.length; i++){
-// 		console.log(horseObject[horseArray[i]] = colorArray[i]);
-// 		console.log(horseObject[colorArray[i]] = horseArray[i]);
-// 	};
+//Driver code for release 1
+// console.log(match(stevenObject, tamirObject));
+// console.log(match(shawnObject, harryObject));
 
 
+//Release 2
+ 
+//Input length integer 
+//Output array of strings that is the length of the integer given
+//Create a function that takes a length parameter
+//Create and alphabet variable 
+//Use loop and .random to create random words
 
 
+//Create object to create words
+function wordCreate(times){
+	var alphabet = "abcdefghijklmnopqrstuvwxyz";
+	var wordArray = [];
+	var letterArray = [];
+
+	
+	for (var i = 0; i < times; i++){
+
+		var randomLetter = (alphabet);
+		letterArray.push(randomLetter);
+		var word = letterArray.join();
+		wordArray.push(word);
+		return wordArray;
+	}
+}
+
+//console.log(wordCreate(3));
+
+
+//Add driver code that does the following 10 times: generates an array, prints the array, 
+//feeds the array to your "longest word" function, and prints the result.
+
+//Attempt at printing
+word = new wordCreate(3) 
+	console.log(word);
+	var i = 0;
+
+while (i < 10) {
+	wordCreate(4).sort(longest)[0];
+	console.log(wordArray[0]);
+		i += 1;
+}
 
 
 

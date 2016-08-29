@@ -8,7 +8,7 @@
 // Step 2 Create a function that takes an array as an argument
 // Step 3 Create empty array
 // Step 4 Use for loop to loop through string array and print array with .length of
-// 		of each string
+// of each string
 
 
 var stringArray = ["long phrase","longest phrase","longer phrase"];
@@ -17,14 +17,27 @@ var wordArray = ["hi", "hello", "hi there"]
 // I created this method on my first attempt that prints the length with the word in the array but found I couldn't
 // get it to sort like this
 function longestString(array){
+	
 	for(var i = 0; i < array.length; i++){
 		var newArray = array[i].length;
 		var newerArray= [];
 		newerArray[array[i]] = newArray;
+		
 		console.log(newerArray);
 	};
 }
+
 longestString(stringArray);
+
+
+function longString(array){
+	
+	for(var i = 0; i < 10; i++){
+		
+	};
+}
+
+longString(stringArray);
 
 
 // I had to time-box myself on this challenge. 
@@ -38,8 +51,8 @@ longestString(stringArray);
 //stringArray.sort(longest)[0] works
 
 function longest(string_1, string_2) {
-			return string_2.length - string_1.length; 
-		};
+	return string_2.length - string_1.length; 
+};
 
 stringArray.sort(longest)[0];
 console.log(stringArray[0]);
@@ -56,7 +69,7 @@ console.log(wordArray[0]);
 //Create two seperate objects
 //Create function that takes two objects as parameters
 //Iterate through each object and use if else statement in function to see if object pair 
-//		matches using .notation
+//	matches using .notation
 
 stevenObject = {
 	name: "Steven",
@@ -86,6 +99,7 @@ function match(objectOne, objectTwo){
 	
 	for(var i = 0; i < length; i++){
 		console.log(objectOne[i]);
+		
 		if (objectOne.i === objectTwo.i){
 			return true;
 			console.log("true");
@@ -94,9 +108,28 @@ function match(objectOne, objectTwo){
 			return false;
 			console.log("false");
 		};
-	};	
+	};
 }
 
+function matches(objectOne, objectTwo){
+	length = 10
+	
+	for(var i = 0; i < length; i++){
+		console.log(objectOne[i]);
+		console.log(objectTwo[i]);
+		if (Object.is(objectOne, objectTwo)){
+			return true;
+			console.log("true");
+		}
+		else {
+			return false;
+			console.log("false");
+		};
+	};
+}
+
+console.log(matches(stevenObject, tamirObject));
+console.log(matches(shawnObject, harryObject));
 //Driver code for release 1
 // console.log(match(stevenObject, tamirObject));
 // console.log(match(shawnObject, harryObject));
@@ -117,9 +150,7 @@ function wordCreate(times){
 	var wordArray = [];
 	var letterArray = [];
 
-	
 	for (var i = 0; i < times; i++){
-
 		var randomLetter = (alphabet);
 		letterArray.push(randomLetter);
 		var word = letterArray.join();
@@ -136,14 +167,16 @@ function wordCreate(times){
 
 //Attempt at printing
 word = new wordCreate(3) 
-	console.log(word);
-	var i = 0;
+//console.log(word);
+var i = 0;
 
 while (i < 10) {
 	wordCreate(4).sort(longest)[0];
-	console.log(wordArray[0]);
-		i += 1;
+	//console.log(wordArray[0]);
+	i += 1;
 }
+
+
 
 
 

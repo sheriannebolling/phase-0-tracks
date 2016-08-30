@@ -87,4 +87,141 @@ Command and output for each SQL query:
 	Parker|Jordan|true|Mrs. Secaras
 	Pat|Harrison|true|Mrs. Secaras
 
+Examples of joins:
 
+1. INNER JOIN (This is the same as JOIN)
+
+	Command:
+	sqlite> SELECT students.first_name, students.school_grade, teachers.name FROM students INNER JOIN teachers ON students.teacher_id = teachers.id;
+
+	Output:
+	Sophia|4|Mrs. Secaras
+	James|6|Mr. Koch
+	Arianna|6|Mr. Koch
+	Mathew|4|Mrs. Secaras
+	Violet|5|Ms. Silagy
+	Charlie|4|Ms. Johnston
+	Melody|4|Ms. Johnston
+	Parker|6|Mrs. Secaras
+	Pat|6|Mrs. Secaras
+
+
+2. LEFT JOIN
+
+	Command:
+	sqlite> SELECT students.last_name, students.pass, teachers.name FROM students LEFT JOIN teachers ON students.teacher_id = teachers.id;
+
+	Output:
+	Joy|true|Mrs. Secaras
+	Blaise|true|Mr. Koch
+	Lyons|true|Mr. Koch
+	Lyons|true|Mrs. Secaras
+	Willow|true|Ms. Silagy
+	Kelly|true|
+	Willis|true|
+	Wonka|true|Ms. Johnston
+	Breaker|true|Ms. Johnston
+	Jordan|true|Mrs. Secaras
+	Harrison|true|Mrs. Secaras
+
+3. RIGHT JOIN and FULL JOIN
+
+	I could not try RIGHT or RIGHT OUTER JOIN 
+
+	Command:
+	SELECT students.last_name, students.pass, teachers.name FROM students RIGHT JOIN teachers ON students.teacher_id = teachers.id;
+
+	Output:
+	Error: RIGHT and FULL OUTER JOINs are not currently supported
+
+	SELECT students.last_name, students.pass, teachers.name FROM students RIGHT OUTER JOIN teachers ON students.teacher_id = teachers.id;
+
+	Output:
+	Error: RIGHT and FULL OUTER JOINs are not currently supported
+
+	Command:
+	sqlite> SELECT students.last_name, students.pass, teachers.name FROM students FULL OUTER JOIN teachers ON students.teacher_id = teachers.id;
+
+	Output:
+	Error: RIGHT and FULL OUTER JOINs are not currently supported
+
+4. SELF JOIN
+
+	Command:
+	sqlite> SELECT a.first_name, b.last_name FROM students a, students b WHERE a.school_grade = b.teacher_id;
+
+	Output:
+	Sophia|Willow
+	James|Kelly
+	James|Willis
+	Arianna|Kelly
+	Arianna|Willis
+	Mathew|Willow
+	Charlie|Willow
+	Melody|Willow
+	Parker|Kelly
+	Parker|Willis
+	Pat|Kelly
+	Pat|Willis
+
+5. CARTESIAN JOIN or CROSS JOIN
+
+	Command:
+	sqlite> SELECT students.last_name, teachers.name FROM students, teachers;
+
+	Output:
+	Joy|Mrs. Secaras
+	Joy|Ms. Johnston
+	Joy|Mr. Koch
+	Joy|Ms. Silagy
+	Joy|Ms. Marisa
+	Blaise|Mrs. Secaras
+	Blaise|Ms. Johnston
+	Blaise|Mr. Koch
+	Blaise|Ms. Silagy
+	Blaise|Ms. Marisa
+	Lyons|Mrs. Secaras
+	Lyons|Ms. Johnston
+	Lyons|Mr. Koch
+	Lyons|Ms. Silagy
+	Lyons|Ms. Marisa
+	Lyons|Mrs. Secaras
+	Lyons|Ms. Johnston
+	Lyons|Mr. Koch
+	Lyons|Ms. Silagy
+	Lyons|Ms. Marisa
+	Willow|Mrs. Secaras
+	Willow|Ms. Johnston
+	Willow|Mr. Koch
+	Willow|Ms. Silagy
+	Willow|Ms. Marisa
+	Kelly|Mrs. Secaras
+	Kelly|Ms. Johnston
+	Kelly|Mr. Koch
+	Kelly|Ms. Silagy
+	Kelly|Ms. Marisa
+	Willis|Mrs. Secaras
+	Willis|Ms. Johnston
+	Willis|Mr. Koch
+	Willis|Ms. Silagy
+	Willis|Ms. Marisa
+	Wonka|Mrs. Secaras
+	Wonka|Ms. Johnston
+	Wonka|Mr. Koch
+	Wonka|Ms. Silagy
+	Wonka|Ms. Marisa
+	Breaker|Mrs. Secaras
+	Breaker|Ms. Johnston
+	Breaker|Mr. Koch
+	Breaker|Ms. Silagy
+	Breaker|Ms. Marisa
+	Jordan|Mrs. Secaras
+	Jordan|Ms. Johnston
+	Jordan|Mr. Koch
+	Jordan|Ms. Silagy
+	Jordan|Ms. Marisa
+	Harrison|Mrs. Secaras
+	Harrison|Ms. Johnston
+	Harrison|Mr. Koch
+	Harrison|Ms. Silagy
+	Harrison|Ms. Marisa

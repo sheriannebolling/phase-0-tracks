@@ -1,0 +1,90 @@
+Command and output for each SQL query:
+
+1. Display the information in one table (either table is fine).
+	
+	Command:
+	sqlite> SELECT * FROM students;
+
+	Output:
+	1|Sophia|Joy|4|true|1
+	2|James|Blaise|6|true|3
+	3|Arianna|Lyons|6|true|3
+	4|Mathew|Lyons|4|true|1
+	5|Tom|White|4|false|1
+	6|George|Williams|6|false|3
+	7|Eric|Eds|5|false|4
+	8|Violet|Willow|5|true|4
+	9|Amber|Kelly|5|true|6
+	10|Chris|Willis|5|false|6
+	11|Charlie|Wonka|4|true|2
+	12|Melody|Breaker|4|true|2
+	13|Parker|Jordan|6|true|1
+	14|Pat|Harrison|6|true|1
+
+2. Update an item that meets some condition (you can choose a condition that makes sense).
+
+	Command:
+	sqlite> UPDATE students SET pass="true" WHERE last_name="Willis";
+
+	Check if it worked:
+	sqlite> SELECT * FROM students WHERE last_name = "Willis";
+
+	10|Chris|Willis|5|true|6
+
+3. Display the information in both tables using one query.
+
+	Command:
+	sqlite> SELECT * FROM students, teachers WHERE students.teacher_id = teachers.id;
+
+	Output:
+	1|Sophia|Joy|4|true|1|1|Mrs. Secaras
+	2|James|Blaise|6|true|3|3|Mr. Koch
+	3|Arianna|Lyons|6|true|3|3|Mr. Koch
+	4|Mathew|Lyons|4|true|1|1|Mrs. Secaras
+	5|Tom|White|4|false|1|1|Mrs. Secaras
+	6|George|Williams|6|false|3|3|Mr. Koch
+	7|Eric|Eds|5|false|4|4|Ms. Silagy
+	8|Violet|Willow|5|true|4|4|Ms. Silagy
+	11|Charlie|Wonka|4|true|2|2|Ms. Johnston
+	12|Melody|Breaker|4|true|2|2|Ms. Johnston
+	13|Parker|Jordan|6|true|1|1|Mrs. Secaras
+	14|Pat|Harrison|6|true|1|1|Mrs. Secaras
+
+4. Display a narrower selection of columns (fewer columns than all of them, in other words) from both tables using one query.
+
+	Command:
+	sqlite> SELECT students.first_name, students.last_name, students.pass, teachers.name FROM students JOIN teachers ON students.teacher_id = teachers.id;
+
+	Output:
+	Sophia|Joy|true|Mrs. Secaras
+	James|Blaise|true|Mr. Koch
+	Arianna|Lyons|true|Mr. Koch
+	Mathew|Lyons|true|Mrs. Secaras
+	Tom|White|false|Mrs. Secaras
+	George|Williams|false|Mr. Koch
+	Eric|Eds|false|Ms. Silagy
+	Violet|Willow|true|Ms. Silagy
+	Charlie|Wonka|true|Ms. Johnston
+	Melody|Breaker|true|Ms. Johnston
+	Parker|Jordan|true|Mrs. Secaras
+	Pat|Harrison|true|Mrs. Secaras
+
+5. Delete an item that meets some condition (you can choose a condition that makes sense).
+
+	Command:
+	sqlite> DELETE FROM students WHERE pass = "false";
+
+	Check if it worked:
+	sqlite> SELECT students.first_name, students.last_name, students.pass, teachers.name FROM students JOIN teachers ON students.teacher_id = teachers.id;
+
+	Sophia|Joy|true|Mrs. Secaras
+	James|Blaise|true|Mr. Koch
+	Arianna|Lyons|true|Mr. Koch
+	Mathew|Lyons|true|Mrs. Secaras
+	Violet|Willow|true|Ms. Silagy
+	Charlie|Wonka|true|Ms. Johnston
+	Melody|Breaker|true|Ms. Johnston
+	Parker|Jordan|true|Mrs. Secaras
+	Pat|Harrison|true|Mrs. Secaras
+
+

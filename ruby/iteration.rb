@@ -1,167 +1,191 @@
-def method
-  puts "This message is inside the method: "
-  puts "Hello"
-  yield
-  yield
-  yield
+#Coyotes
+
+#Create a method that takes a parameter
+  
+def ouch(body_part)
+  puts "Im in the method"
+  puts "Ouch my #{body_part} hurts"
+  yield("John")
 end
 
-method {
-  puts "This is the message in the block: "
-  puts "Goodbye"}
+#call ouch with parameter and block as parameter
 
-puts "\nHash"
-house_paint = {
-    "living room" => "yellow",
-    kitchen: "blue",
-    library: "green",
-    bedroom: "gray"
+ouch("foot") {
+  |name| puts "I'm not in the block" 
+  puts "#{name}, why did you throw that at me?"
 }
 
-puts "Before .each call:"
-p house_paint
 
-puts "\nAfter .each call:"
-house_paint.each do |room, color|
-    color = "black"
-    puts "The #{room} will be painted #{color}!"
-end
 
-puts "\n.each call didn't permanently change anything:"
-p house_paint
+    # =begin
+    # Bobolinks
 
-puts "\nBefore .map call:"
-p house_paint
+    # def method
+    #   puts "This message is inside the method: "
+    #   puts "Hello"
+    #   yield
+    #   yield
+    #   yield
+    # end
 
-puts "\nAfter .map call:"
-house_paint.map do |room, color|
-    color = "white"
-    puts "The #{room} will be painted #{color}!"
-end
+    # method {
+    #   puts "This is the message in the block: "
+    #   puts "Goodbye"}
 
-puts "\n.map call didn't permanently change anything:"
-p house_paint
+    # puts "\nHash"
+    # house_paint = {
+    #     "living room" => "yellow",
+    #     kitchen: "blue",
+    #     library: "green",
+    #     bedroom: "gray"
+    # }
 
-puts "\nArray"
-puts "Before .each call:"
-furniture = ["sofa", "desk", "dining table", "bed"]
-p furniture
+    # puts "Before .each call:"
+    # p house_paint
 
-puts "\nAfter .each call"
-puts "These are the pieces we own: " 
-furniture.each do |piece| 
-    piece = "footstool"
-    puts "#{piece}"
-end
+    # puts "\nAfter .each call:"
+    # house_paint.each do |room, color|
+    #     color = "black"
+    #     puts "The #{room} will be painted #{color}!"
+    # end
 
-puts "\n.each did not permanently change anything:"
-p furniture
+    # puts "\n.each call didn't permanently change anything:"
+    # p house_paint
 
-puts "\nBefore .map call:"
-p furniture
+    # puts "\nBefore .map call:"
+    # p house_paint
 
-puts "\nAfter .map call:"
-    puts "These are the pieces we own: " 
-    furniture.map do |piece|
-        piece = "nightstand" 
-        puts "#{piece}"
-end
+    # puts "\nAfter .map call:"
+    # house_paint.map do |room, color|
+    #     color = "white"
+    #     puts "The #{room} will be painted #{color}!"
+    # end
 
-puts "\n.map did not permanently change anything:"
-p furniture
+    # puts "\n.map call didn't permanently change anything:"
+    # p house_paint
 
-puts "\nBefore .map! call:"
-p furniture
+    # puts "\nArray"
+    # puts "Before .each call:"
+    # furniture = ["sofa", "desk", "dining table", "bed"]
+    # p furniture
 
-puts "\nAfter .map! call:"
-    puts "These are the pieces we own: " 
-        furniture.map! do |piece|
-            piece.reverse!
-end
+    # puts "\nAfter .each call"
+    # puts "These are the pieces we own: " 
+    # furniture.each do |piece| 
+    #     piece = "footstool"
+    #     puts "#{piece}"
+    # end
 
-puts furniture
-puts "\n.map! call did permanently change the furniture"
+    # puts "\n.each did not permanently change anything:"
+    # p furniture
 
-p furniture
-puts "\n"
+    # puts "\nBefore .map call:"
+    # p furniture
 
-# Array
+    # puts "\nAfter .map call:"
+    #     puts "These are the pieces we own: " 
+    #     furniture.map do |piece|
+    #         piece = "nightstand" 
+    #         puts "#{piece}"
+    # end
 
-letters = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k"]
-puts "\nBefore .delete_if method is called:"
-p letters
+    # puts "\n.map did not permanently change anything:"
+    # p furniture
 
-puts "\nAfter .delete_if method is called:"
-letters.delete_if { |letter| letter < "c" }
-p letters
+    # puts "\nBefore .map! call:"
+    # p furniture
 
-puts "\nBefore .keep_if method is called:"
-p letters
+    # puts "\nAfter .map! call:"
+    #     puts "These are the pieces we own: " 
+    #         furniture.map! do |piece|
+    #             piece.reverse!
+    # end
 
-puts "\nAfter .keep_if method is called:"
-letters.keep_if { |letter| letter > "e" }
-p letters 
+    # puts furniture
+    # puts "\n.map! call did permanently change the furniture"
 
-puts "\nBefore .select! method is called:"
-p letters
+    # p furniture
+    # puts "\n"
 
-puts "\nAfter .select! method is called:"
-letters.select! { |letter| letter > "f" }
-p letters 
+    # # Array
 
-puts "\nBefore .drop_while method is called:"
-p letters
+    # letters = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k"]
+    # puts "\nBefore .delete_if method is called:"
+    # p letters
 
-puts "\nAfter .drop_while method is called:"
-new_letters = letters.drop_while { |letter| letter < "i" }
-p new_letters
+    # puts "\nAfter .delete_if method is called:"
+    # letters.delete_if { |letter| letter < "c" }
+    # p letters
 
-# This shows new_letters is false 
-p new_letters == true
-puts "\n"
+    # puts "\nBefore .keep_if method is called:"
+    # p letters
 
-# Hash
+    # puts "\nAfter .keep_if method is called:"
+    # letters.keep_if { |letter| letter > "e" }
+    # p letters 
 
-numbers = {
-    1 => "one",
-    2 => "two",
-    3 => "three",
-    4 => "four",
-    5 => "five",
-    6 => "six",
-    7 => "seven",
-    8 => "eight",
-    9 => "nine",
-    10 => "ten"
-}
+    # puts "\nBefore .select! method is called:"
+    # p letters
 
-puts "Before .delete_if method is called:"
-p numbers
+    # puts "\nAfter .select! method is called:"
+    # letters.select! { |letter| letter > "f" }
+    # p letters 
 
-puts "\nAfter .delete_if method is called:"
-numbers.delete_if { |digit, word| digit < 3 }
-p numbers
+    # puts "\nBefore .drop_while method is called:"
+    # p letters
 
-puts "\nBefore .keep_if method is called:"
-p numbers
+    # puts "\nAfter .drop_while method is called:"
+    # new_letters = letters.drop_while { |letter| letter < "i" }
+    # p new_letters
 
-puts "\nAfter .keep_if method is called:"
-numbers.keep_if { |digit, word| digit > 4 }
-p numbers
+    # # This shows new_letters is false 
+    # p new_letters == true
+    # puts "\n"
 
-puts "\nBefore .select! method is called:"
-p numbers
+    # # Hash
 
-puts "\nAfter .select! method is called:"
-numbers.select! { |digit, word| digit > 6 }
-p numbers
+    # numbers = {
+    #     1 => "one",
+    #     2 => "two",
+    #     3 => "three",
+    #     4 => "four",
+    #     5 => "five",
+    #     6 => "six",
+    #     7 => "seven",
+    #     8 => "eight",
+    #     9 => "nine",
+    #     10 => "ten"
+    # }
 
-puts "\nBefore .reject! method is called:"
-p numbers
+    # puts "Before .delete_if method is called:"
+    # p numbers
 
-puts "\nAfter .reject! method is called:"
-numbers.reject! { |digit, word| digit < 9 }
-p numbers
+    # puts "\nAfter .delete_if method is called:"
+    # numbers.delete_if { |digit, word| digit < 3 }
+    # p numbers
 
-# Shows reject! returns false
-p numbers == true
+    # puts "\nBefore .keep_if method is called:"
+    # p numbers
+
+    # puts "\nAfter .keep_if method is called:"
+    # numbers.keep_if { |digit, word| digit > 4 }
+    # p numbers
+
+    # puts "\nBefore .select! method is called:"
+    # p numbers
+
+    # puts "\nAfter .select! method is called:"
+    # numbers.select! { |digit, word| digit > 6 }
+    # p numbers
+
+    # puts "\nBefore .reject! method is called:"
+    # p numbers
+
+    # puts "\nAfter .reject! method is called:"
+    # numbers.reject! { |digit, word| digit < 9 }
+    # p numbers
+
+    # # Shows reject! returns false
+    # p numbers == true
+
+    # =end

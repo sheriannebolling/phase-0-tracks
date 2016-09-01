@@ -124,10 +124,12 @@ flowers.reject! {|flower| flower == "lily"}
 
 p flowers
 
+
 #Iterate through hash and returns material if not equal to leather and print to show works
 furniture_material.reject!{|furniture, material| material == "leather"}
 
 p furniture_material
+
 
 
 

@@ -1,12 +1,32 @@
-=begin
-Input - client data 
-Create hash 
-Prompt user for data 
-Assign data as value for key
-Give user oppurtunity to update a key
-Output - print entire hash after all questions answered
-=end
 
+#Coyotes
+# Input - client details
+# Output - latest version of hash
+# Create an empty hash
+# Create user interface that asks for client data
+# Pushes entered client data into hash with data type as
+# 	key and data as the value.
+# Convert input to correct data type using to_i
+# Print hash to screen when user is finished with the questions
+# Ask the user if they would like to update a key
+# Update if yes and print latest hash otherwise print hash
+
+
+
+
+
+
+
+
+=begin
+#Bobolinks
+
+# Input - client data 
+# Create hash 
+# Prompt user for data 
+# Assign data as value for key
+# Give user oppurtunity to update a key
+# Output - print entire hash after all questions answered
 
 #Create hash, prompt user, and add entered data to hash.
 
@@ -62,3 +82,4 @@ update = gets.chomp
 
 p client_details
 
+=end

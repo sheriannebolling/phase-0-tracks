@@ -1,19 +1,76 @@
 #Coyotes
 
-#Create a method that takes a parameter
-  
+#Create a method that takes a parameter 
 def ouch(body_part)
   puts "Im in the method"
   puts "Ouch my #{body_part} hurts"
   yield("John")
 end
 
-#call ouch with parameter and block as parameter
-
+#Call ouch with parameter and block as parameter
 ouch("foot") {
   |name| puts "I'm not in the block" 
   puts "#{name}, why did you throw that at me?"
 }
+
+
+#Create ice cream hash
+ice_cream_flavors = ["chocolate", "vanilla", "cookies and cream",
+ "rocky road", "heavenly hash", "strawberry", "mint chocolate chip"]
+
+#Create favorite things hash
+favorite_things = {
+    truck: "F100",
+    color: "blue",
+    animal: "dog",
+    food: "shellfish",
+    activity: "skeet shooting",
+    workout: "yoga",
+    hobby: "traveling"
+}
+
+#Iterate through ice cream array with .each and show it doesn't modify array 
+ice_cream_flavors.each do |flavor| 
+    puts "I like #{flavor} ice cream!"
+    p flavor.count("ei")
+end
+
+p ice_cream_flavors
+
+#Iterate through favorite things hash with .each and show it doesn't modify hash
+favorite_things.each do |category, favorite|
+    puts "#{favorite} is my favorite #{category}"
+    p favorite.count("ei")
+end
+
+p favorite_things
+
+#Iterate through ice cream array with .map! and show it modifies the array 
+ice_cream_flavors.map! do |flavor| 
+    puts "I like #{flavor} ice cream!"
+    p flavor.count("ei")
+end
+
+p ice_cream_flavors
+
+#Iterate through favorite things hash with .map and show it doesn't modify the hash
+favorite_things.map do |category, favorite|
+    puts "#{favorite} is my favorite #{category}"
+    p favorite.count("ei")
+end
+
+p favorite_things
+
+
+#Iterate through favorite things hash with .map and assign to a new variable to make a new modified hash storing the
+#new values
+
+new_favorites = favorite_things.map do |category, favorite|
+     p favorite.capitalize
+end
+
+p new_favorites
+
 
 
 

@@ -11,6 +11,8 @@
 # Ask the user if they would like to update a key
 # Update if yes and print latest hash otherwise print hash
 
+
+#Create empty hash, attain client data, push client data into hash
 client_info = {}
 
 puts "What is the client's name?"
@@ -40,8 +42,11 @@ client_info[:color] = gets.chomp
 puts "Does the client want architectural changes?"
 client_info[:architectural_changes] = gets.chomp
 
+#print hash
 p client_info
 
+
+#Use if statement to update key
 puts "Would you like to update a key?(yes or no)?"
 update = gets.chomp
 
@@ -82,76 +87,79 @@ if update == "yes"
 	end
 end
 
+
+#prints updated hash
 p client_info
 
 puts "This is the latest client information entered:"
 
+#prints latest data entered nicely
 client_info.each do |info_type, client_info| 
 	puts "#{info_type}: #{client_info}"   
 end
 
-=begin
-#Bobolinks
+	# =begin
+	# #Bobolinks
 
-# Input - client data 
-# Create hash 
-# Prompt user for data 
-# Assign data as value for key
-# Give user oppurtunity to update a key
-# Output - print entire hash after all questions answered
+	# # Input - client data 
+	# # Create hash 
+	# # Prompt user for data 
+	# # Assign data as value for key
+	# # Give user oppurtunity to update a key
+	# # Output - print entire hash after all questions answered
 
-#Create hash, prompt user, and add entered data to hash.
+	# #Create hash, prompt user, and add entered data to hash.
 
-client_details = {}
+	# client_details = {}
 
-puts "What is the client's name?"
-name = gets.chomp
-client_details[:name] = name
+	# puts "What is the client's name?"
+	# name = gets.chomp
+	# client_details[:name] = name
 
-puts "What is the client's age?"
-age = gets.chomp
-client_details[:age] = age.to_i
+	# puts "What is the client's age?"
+	# age = gets.chomp
+	# client_details[:age] = age.to_i
 
-puts "How many children does the client have?"
-children = gets.chomp
-client_details[:children] = children.to_i
+	# puts "How many children does the client have?"
+	# children = gets.chomp
+	# client_details[:children] = children.to_i
 
-puts "What decor theme would the client like?"
-theme = gets.chomp
-client_details[:theme] = theme
+	# puts "What decor theme would the client like?"
+	# theme = gets.chomp
+	# client_details[:theme] = theme
 
-puts "Does the client have a budget?"
-budget = gets.chomp
-client_details[:budget] = budget
+	# puts "Does the client have a budget?"
+	# budget = gets.chomp
+	# client_details[:budget] = budget
 
-p client_details
+	# p client_details
 
-#Allow user to update hash value. 
+	# #Allow user to update hash value. 
 
-puts "Do you have any updates?(yes or none)"
-update = gets.chomp
-	if update == "yes"
-		puts "What key would you like to update?"
-		key = gets.chomp
-		puts "What would you like to update the value to?"
-		value = gets.chomp
-	elsif update == "none"
-		puts "Ok no updates will be made"
+	# puts "Do you have any updates?(yes or none)"
+	# update = gets.chomp
+	# 	if update == "yes"
+	# 		puts "What key would you like to update?"
+	# 		key = gets.chomp
+	# 		puts "What would you like to update the value to?"
+	# 		value = gets.chomp
+	# 	elsif update == "none"
+	# 		puts "Ok no updates will be made"
 
-	end		
+	# 	end		
 
-	if key == "name"
-		client_details.merge!(:name => value)
-	elsif key == "age"
-		client_details.merge!(:age => value.to_i)
-	elsif key == "children"
-		client_details.merge!(:children => value.to_i)
-	elsif key == "theme"
-		client_details.merge!(:theme => value)
-	elsif key == "budget"
-		client_details.merge!(:budget => value)
-	end
+	# 	if key == "name"
+	# 		client_details.merge!(:name => value)
+	# 	elsif key == "age"
+	# 		client_details.merge!(:age => value.to_i)
+	# 	elsif key == "children"
+	# 		client_details.merge!(:children => value.to_i)
+	# 	elsif key == "theme"
+	# 		client_details.merge!(:theme => value)
+	# 	elsif key == "budget"
+	# 		client_details.merge!(:budget => value)
+	# 	end
 
-p client_details
+	# p client_details
 
-=end
+	# =end

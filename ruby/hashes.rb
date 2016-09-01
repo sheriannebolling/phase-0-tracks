@@ -6,15 +6,41 @@
 # Create user interface that asks for client data
 # Pushes entered client data into hash with data type as
 # 	key and data as the value.
-# Convert input to correct data type using to_i
+# Convert input to correct data type using .to_i and .to_b
 # Print hash to screen when user is finished with the questions
 # Ask the user if they would like to update a key
 # Update if yes and print latest hash otherwise print hash
 
+client_info = {}
 
+puts "What is the client's name"
+client_info[:name] = gets.chomp
 
+puts "What is the client's address"
+client_info[:address] = gets.chomp
 
+puts "What is the client's email"
+client_info[:email] = gets.chomp
 
+puts "What is the client's phone number"
+client_info[:phone_number] = gets.chomp
+
+puts "What is the client's age"
+client_info[:age] = gets.chomp.to_i
+
+puts "How many children does the client have"
+client_info[:children] = gets.chomp.to_i
+
+puts "What decor theme would the client like"
+client_info[:theme] = gets.chomp
+
+puts "What is the client's favorite color"
+client_info[:color] = gets.chomp
+
+puts "Does the client want architectural changes"
+client_info[:architectural_changes] = gets.chomp
+
+p client_info
 
 
 

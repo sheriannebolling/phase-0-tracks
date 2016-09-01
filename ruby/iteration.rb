@@ -14,11 +14,11 @@ ouch("foot") {
 }
 
 
-#Create ice cream hash
+#Create array
 ice_cream_flavors = ["chocolate", "vanilla", "cookies and cream",
  "rocky road", "heavenly hash", "strawberry", "mint chocolate chip"]
 
-#Create favorite things hash
+#Create hash
 favorite_things = {
     truck: "F100",
     color: "blue",
@@ -71,6 +71,63 @@ end
 
 p new_favorites
 
+
+#Create and print an array and a hash
+flowers = ["rose", "violet", "lilac", "peony", "tulip", "daisy", "iris", "lily"]
+
+p flowers
+
+furniture_material = {
+    dining_table: "wood",
+    coffee_table: "glass",
+    chairs: "leather",
+    couch: "leather",
+    lounge_chair: "wicker",
+}
+
+p furniture_material
+
+
+#Iterate through array and delete flower if flower length is greather than 5 and print to show works
+flowers.delete_if {|flower| flower.length > 5}
+
+p flowers
+
+#Iterate through hash and delete furniture if material is equal to wicker and print to show works
+furniture_material.delete_if {|furniture, material| material == "wicker"}
+
+p furniture_material
+
+#Iterate through array filter for flower if length is less than 5 or equal to "peony" and print to show works
+flowers.keep_if {|flower| flower.length < 5 || flower == "peony"}
+
+p flowers
+
+#Iterate through hash filter for furniture if material is equal to glass or leather and print to show works
+furniture_material.keep_if {|furniture, material| material == "glass" || material == "leather"}
+
+p furniture_material
+
+
+#Iterate through array filter for flower if equal to "rose" or "lily" and print to show works
+flowers.select! {|flower| flower == "rose" || flower == "lily"}
+
+p flowers
+
+#Iterate through hash filter for furniture if material is equal to leather and print to show works
+furniture_material.select! {|furniture, material| material == "leather"}
+
+p furniture_material
+
+#Iterate through array and returns flowers that do not equal "lily" and print to show works
+flowers.reject! {|flower| flower == "lily"}
+
+p flowers
+
+#Iterate through hash and returns material if not equal to leather and print to show works
+furniture_material.reject!{|furniture, material| material == "leather"}
+
+p furniture_material
 
 
 

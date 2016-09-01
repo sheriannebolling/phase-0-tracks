@@ -13,36 +13,82 @@
 
 client_info = {}
 
-puts "What is the client's name"
+puts "What is the client's name?"
 client_info[:name] = gets.chomp
 
-puts "What is the client's address"
+puts "What is the client's address?"
 client_info[:address] = gets.chomp
 
-puts "What is the client's email"
+puts "What is the client's email?"
 client_info[:email] = gets.chomp
 
-puts "What is the client's phone number"
+puts "What is the client's phone number?"
 client_info[:phone_number] = gets.chomp
 
-puts "What is the client's age"
+puts "What is the client's age?"
 client_info[:age] = gets.chomp.to_i
 
-puts "How many children does the client have"
+puts "How many children does the client have?"
 client_info[:children] = gets.chomp.to_i
 
-puts "What decor theme would the client like"
+puts "What decor theme would the client like?"
 client_info[:theme] = gets.chomp
 
-puts "What is the client's favorite color"
+puts "What is the client's favorite color?"
 client_info[:color] = gets.chomp
 
-puts "Does the client want architectural changes"
+puts "Does the client want architectural changes?"
 client_info[:architectural_changes] = gets.chomp
 
 p client_info
 
+puts "Would you like to update a key?(yes or no)?"
+update = gets.chomp
 
+if update == "yes"
+
+	puts "What key would you like to update?"
+	key_to_update = gets.chomp	
+
+	puts "What would you like to update the value to?"
+	new_value = gets.chomp
+
+	if key_to_update == "name"
+		client_info[:name] = new_value
+
+	elsif key_to_update == "address"
+		client_info[:address] = new_value
+
+	elsif key_to_update == "email"
+		client_info[:email] = new_value
+
+	elsif key_to_update == "phone number"
+		client_info[:phone_number] = new_value
+
+	elsif key_to_update == "age"
+		client_info[:age] = new_value
+
+	elsif key_to_update == "children"
+		client_info[:children] = new_value
+
+	elsif key_to_update == "theme"
+		client_info[:theme] = new_value
+
+	elsif key_to_update == "color"
+		client_info[:color] = new_value
+
+	elsif key_to_update == "architectural changes"
+		client_info[:architectural_changes] = new_value
+	end
+end
+
+p client_info
+
+puts "This is the latest client information entered:"
+
+client_info.each do |info_type, client_info| 
+	puts "#{info_type}: #{client_info}"   
+end
 
 =begin
 #Bobolinks

@@ -7,7 +7,7 @@
 # handle edge cases
 
 
-
+#method that reverses names
 def reverse_name(name)
 	name.split.reverse.join(" ")
 end

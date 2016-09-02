@@ -19,15 +19,12 @@ def search_array(array, int)
     end
 end
 
-
 # DRIVER CODE
 
 # p search_array(arr, 1)
 # returns => 3
 # p search_array(arr, 24)
 # returns => nil
-
-
 
 # RELEASE 1
 

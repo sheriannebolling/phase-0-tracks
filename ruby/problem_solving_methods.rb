@@ -44,8 +44,6 @@ end
 # so we know it works
 
 
-
-
 # RELEASE 2
 
 # - input an array of letters

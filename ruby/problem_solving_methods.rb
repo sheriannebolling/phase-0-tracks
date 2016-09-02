@@ -1,5 +1,4 @@
 # RELEASE 0
-
 arr = [42, 89, 23, 1]
 
 def search_array(array, int)
@@ -43,7 +42,6 @@ end
 # returns => true
 # so we know it works
 
-
 # RELEASE 2
 
 # - input an array of letters
@@ -59,10 +57,8 @@ end
 #     - break if boolean is false
 # - output array of letters alphabetized
 
-
 # [a,z,e,g,j]
 # [a,e,g,j,z]
-
 
 def assign_index(char)
     alphabet = "abcdefghijklmnopqrstuvwxyz"
@@ -77,8 +73,6 @@ end
 
 def alphabetize(letters)
     length = letters.length
-    
-    
     loop do
         swapped = false
         (length-1).times do |i|
@@ -86,13 +80,10 @@ def alphabetize(letters)
                 letters[i], letters[i+1] = letters[i+1], letters[i]
                 swapped = true
             end
-
         end
-
     break if not swapped
     end
     letters
-    
 end
 
 # p assign_index("z")

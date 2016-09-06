@@ -3,12 +3,12 @@
 class Santa 
 	attr_reader :age, :ethnicity
 	attr_accessor :gender
-	def initialize(gender, ethnicity)
+	def initialize(gender, ethnicity, age)
 		puts"Initializing new Santa instance ..."
 		@gender = gender
 		@ethnicity = ethnicity
 		@reindeer_ranking = ["Rudolph", "Dasher", "Dancer", "Prancer", "Vixen", "Comet", "Cupid", "Donner", "Blitzen"]
-		@age = 0
+		@age = age
 	end
 	
 	def speak
@@ -43,7 +43,7 @@ class Santa
 end
 
 #Driver code
-santa_1 = Santa.new("woman", "caucasian")
+santa_1 = Santa.new("woman", "caucasian", 32)
 
 #test speak and eat_milk_and_cookies
 santa_1.speak 
@@ -66,9 +66,18 @@ santas = []
 example_genders = ["agender", "female", "bigender", "male", "female", "gender fluid", "N/A"]
 example_ethnicities = ["black", "Latino", "white", "Japanese-African", "prefer not to say", "Mystical Creature (unicorn)", "N/A"]
 
+#Create multiple santas with random genders, ethnicities, and ages
+
 10.times do
-	santas << Santa.new(example_genders.sample, example_ethnicities.sample)
+	santas << Santa.new(example_genders.sample, example_ethnicities.sample, rand(141))
 end
+
+santa_count = 0
+santas.each do |santa|
+	santa_count +=1
+	puts "Santa number #{santa_count} identifies as a #{santa.ethnicity} #{santa.gender} that is #{santa.age} years old "
+end
+
 
 #Bobolinks
 

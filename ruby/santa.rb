@@ -1,3 +1,4 @@
+
 #Define Santa class and give it instance methods and some attributes.
 class Santa
 	attr_reader :ethnicity, :age

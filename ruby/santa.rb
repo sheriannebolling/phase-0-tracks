@@ -1,6 +1,8 @@
 
 #Coyotes
 class Santa 
+	attr_reader :age, :ethnicity
+	attr_accessor :gender
 	def initialize(gender, ethnicity)
 		puts"Initializing new Santa instance ..."
 		@gender = gender
@@ -26,39 +28,47 @@ class Santa
 		@reindeer_ranking << reindeer_name
 	end
 	
-	def age
-		@age
-	end
+	# def age
+	# 	@age
+	# end
 	
-	def ethnicity
-		@ethnicity
-	end
+	# def ethnicity
+	# 	@ethnicity
+	# end
 	
-	def gender=(new_gender)
-		@gender = new_gender
-	end
+	# def gender=(new_gender)
+	# 	@gender = new_gender
+	# end
 	
 end
 
 #Driver code
 santa_1 = Santa.new("woman", "caucasian")
-santa_1.speak
+
+#test speak and eat_milk_and_cookies
+santa_1.speak 
 santa_1.eat_milk_and_cookies("chocolate chip")
-
 p santa_1
-santa_1.celebrate_birthday
 
+#test celbrate_birthday and get_mad_at
+santa_1.celebrate_birthday 
 santa_1.get_mad_at("Rudolph")
 p santa_1
 
+#test gender setter
 santa_1.gender = "male"
 p santa_1
 
 puts "Santa Claus is #{santa_1.age} years old and 
 identifies as #{santa_1.ethnicity}."
 
+santas = []
+example_genders = ["agender", "female", "bigender", "male", "female", "gender fluid", "N/A"]
+example_ethnicities = ["black", "Latino", "white", "Japanese-African", "prefer not to say", "Mystical Creature (unicorn)", "N/A"]
 
-
+10.times do
+	santas << Santa.new(example_genders.sample, example_ethnicities.sample)
+end
 
 #Bobolinks
 

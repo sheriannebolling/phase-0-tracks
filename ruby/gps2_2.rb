@@ -1,22 +1,54 @@
 #Coyotes
 
 # Method to create a list
-# input: string of items separated by spaces (example: "carrots apples cereal pizza")
+# input: string of items separated by spaces (example: "carrots apples cereal pizza") and hash
 # steps: 
-  # Create method that takes a string and pushes the string into a hash as keys 
+  # Create method that takes a string and hash pushes the string into a hash as keys 
   # Set default quantity as values
   # print the list to the console 
 # output: Hash of items and amounts
 
+grocery_hash = {}
+
+def create_grocery (list, hash)
+	list_array = list.split
+	list_array.each do |list|
+		hash[list.to_sym] = 1
+	end
+	hash
+end
+
+#Driver code to test method
+list = "carrots apples cereal pizza"
+create_grocery(list, grocery_hash)
+p grocery_hash
+
 # Method to add an item to a list
-# input: item name and optional quantity
+# input: item name, hash, and optional quantity
 # steps: Create method that takes an item as a parameter and pushes it into the grocery hash
 # output: Hash of items and amounts with item added
+
+
+def add_item(hash, item, quantity = 1)
+		hash[item.to_sym] = quantity
+end
+
+add_item(grocery_hash, "orange", 2)
+p grocery_hash
+
+
 
 # Method to remove an item from the list
 # input: item name
 # steps: Create a method that takes an item and removes it from the groceries hash
 # output: Hash of items and amounts with item removed
+
+def remove_item(hash, item)
+		hash.delete(item.to_sym)
+end
+
+remove_item(grocery_hash, "orange")
+p grocery_hash
 
 # Method to update the quantity of an item
 # input: Item name and quantity to update to
@@ -27,9 +59,6 @@
 # input: hash
 # steps: Create a method that takes a hash and prints in a user friendly way
 # output: Readable and user friendly list
-
-
-
 
 
 

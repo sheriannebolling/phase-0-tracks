@@ -76,6 +76,26 @@ p grocery_hash
 
 print(grocery_hash)
 
+
+# Reflect:
+# What did you learn about pseudocode from working on this challenge?
+# 	To take my time, really putting in the time and effort on this part saves more time later.
+# What are the tradeoffs of using arrays and hashes for this challenge?
+# 	It depends on what I am trying to accomplish. I think cerating an empty hash worked best. I think
+# 	when using things that are connected (item, quantity) its best to use a hash whereas if it was 
+# 	just a list of items I would have used an array
+# What does a method return?
+# 	The value of the last statement in the method.
+# What kind of things can you pass into methods as arguments? 
+# 	You can pass strings, hashes, arrays, integers, default values, other methods.
+# How can you pass information between methods?
+# 	You can pass information between methods by using parameters and passing info through the arguments.
+# What concepts were solidified in this challenge, and what concepts are still confusing?
+# 	I think pseudocoding and creating steps was challenging and I got much better at it. I don't think I 
+# 	am really confused on anything but I could take some time to go even further than the challenge asks to
+# 	improve my skills.
+
+
 #Bobolinks
 # # Create an empty hash for master grocery list
 

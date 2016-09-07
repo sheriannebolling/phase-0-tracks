@@ -8,8 +8,6 @@
   # print the list to the console 
 # output: Hash of items and amounts
 
-grocery_hash = {}
-
 def create_grocery (list, hash)
 	list_array = list.split
 	list_array.each do |list|
@@ -18,25 +16,14 @@ def create_grocery (list, hash)
 	hash
 end
 
-#Driver code to test method
-list = "carrots apples cereal pizza"
-create_grocery(list, grocery_hash)
-p grocery_hash
-
 # Method to add an item to a list
 # input: item name, hash, and optional quantity
 # steps: Create method that takes an item as a parameter and pushes it into the grocery hash
 # output: Hash of items and amounts with item added
 
-
 def add_item(hash, item, quantity = 1)
 		hash[item.to_sym] = quantity
 end
-
-add_item(grocery_hash, "orange", 2)
-p grocery_hash
-
-
 
 # Method to remove an item from the list
 # input: item name and hash
@@ -47,9 +34,6 @@ def remove_item(hash, item)
 		hash.delete(item.to_sym)
 end
 
-remove_item(grocery_hash, "orange")
-p grocery_hash
-
 # Method to update the quantity of an item
 # input: Item name, hash, and quantity to update to
 # steps: Create a method that takes an item and quantity and changes that item to have that quantity
@@ -58,9 +42,6 @@ p grocery_hash
 def update_quantity(hash, item, quantity)
 	hash.merge!(item.to_sym => quantity)
 end
-
-update_quantity(grocery_hash, "carrots", 3)
-p grocery_hash
 
 # Method to print a list and make it look pretty
 # input: hash
@@ -74,8 +55,26 @@ def print(hash)
 	end
 end
 
-print(grocery_hash)
 
+
+#Driver code
+list = ""
+grocery_hash = {}
+create_grocery(list, grocery_hash)
+
+add_item(grocery_hash, "Lemonade", 2)
+add_item(grocery_hash, "Tomatoes", 3)
+add_item(grocery_hash, "Onions", 1)
+add_item(grocery_hash, "Ice Cream", 4)
+p grocery_hash
+
+remove_item(grocery_hash, "Lemonade")
+p grocery_hash
+
+update_quantity(grocery_hash, "Ice Cream", 1)
+p grocery_hash
+
+print(grocery_hash)
 
 #Bobolinks
 # # Create an empty hash for master grocery list

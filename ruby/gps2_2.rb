@@ -39,7 +39,7 @@ p grocery_hash
 
 
 # Method to remove an item from the list
-# input: item name
+# input: item name and hash
 # steps: Create a method that takes an item and removes it from the groceries hash
 # output: Hash of items and amounts with item removed
 
@@ -51,16 +51,30 @@ remove_item(grocery_hash, "orange")
 p grocery_hash
 
 # Method to update the quantity of an item
-# input: Item name and quantity to update to
+# input: Item name, hash, and quantity to update to
 # steps: Create a method that takes an item and quantity and changes that item to have that quantity
 # output: Hash of items with updated quantity
+
+def update_quantity(hash, item, quantity)
+	hash.merge!(item.to_sym => quantity)
+end
+
+update_quantity(grocery_hash, "carrots", 3)
+p grocery_hash
 
 # Method to print a list and make it look pretty
 # input: hash
 # steps: Create a method that takes a hash and prints in a user friendly way
 # output: Readable and user friendly list
 
+def print(hash)
+	puts "Here are the items on your grocery list:"
+	hash.each do |item, quantity|
+		puts "#{item} = #{quantity} "
+	end
+end
 
+print(grocery_hash)
 
 
 #Bobolinks
@@ -89,7 +103,7 @@ p grocery_hash
 
 		# # Method to add an item to a list
 		# # input: item name, optional quantity, hash
-		# # steps:Take string as an argument with an optional qantity number. Add into hash. Takes a default value.
+		# # steps:Take string as an argument with an optional quantity number. Add into hash. Takes a default value.
 		# # output: Print the updated hash
 
 		# #Add item method 

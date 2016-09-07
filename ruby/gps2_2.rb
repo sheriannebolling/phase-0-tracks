@@ -22,7 +22,7 @@ end
 # output: Hash of items and amounts with item added
 
 def add_item(hash, item, quantity = 1)
-		hash[item.to_sym] = quantity
+	hash[item.to_sym] = quantity
 end
 
 # Method to remove an item from the list
@@ -31,7 +31,7 @@ end
 # output: Hash of items and amounts with item removed
 
 def remove_item(hash, item)
-		hash.delete(item.to_sym)
+	hash.delete(item.to_sym)
 end
 
 # Method to update the quantity of an item

@@ -1,23 +1,52 @@
  #Coyotes
 
 #Shout module
-module Shout
- def self.yell_angrily(words)
-    words + "!!!" + " :("
-  end
-end
+# module Shout
+#  def self.yell_angrily(words)
+#     words + "!!!" + " :("
+#   end
 
-
-module Shout
- def self.yell_happily(words)
-    words + "!!!!!!!!!" + " ;p"
-  end
-end
-
+#  def self.yell_happily(words)
+#     words + "!!!!!!!!!" + " ;p"
+#   end
+# end
 
 #Driver code for shout module
 # p Shout.yell_angrily("How dare you")
 # p Shout.yell_happily("Woooooo hooooooo")
+
+
+#Shout mixin 
+module Shout
+ def yell_angrily(words)
+    words + "!!!" + " :("
+  end
+
+ def yell_happily(words)
+    words + "!!!!!!!!!" + " ;p"
+  end
+end
+
+class Lifeguard 
+  include Shout
+end
+
+class Teacher
+  include Shout
+end
+
+#Driver code to make new instances and calls module methods
+beth = Lifeguard.new
+p beth.yell_angrily("Get out of the pool")
+p beth.yell_happily("Kids swim")
+
+val = Teacher.new
+p val.yell_angrily("Listen up")
+p val.yell_happily("Have a good summer")
+
+
+
+
 
 
 #Bobolinks

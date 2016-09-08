@@ -22,28 +22,49 @@
 		# Create a method to check if win
 			# If the new array is equal to the array of the word variable then display 
 			# congratulatory message if not a taunting message.
-			
-		
+				
 
 class Game
+	# @word_answer
+	# @count
 	def initialize
 		puts "initializing new game"
 	end
 
 	def make_array(word_answer)
-		word_anwer_array = word_answer.split(//)
-		word_anwer_array
+		@word_answer_array = word_answer.split(//)
+	end
+
+	def make_blank_array(word_answer)
+		blank_array_length = word_answer.length
+		@blank_array = []
+		blank_array_length.times do |char|
+			@blank_array << " _ "
+		end 
+		@blank_array
+	end
+
+	def match(letter_guess)
+		index = 0
+		while index < @word_answer_array.length 
+			if letter_guess == @word_answer_array[index]
+				@blank_array[index] = letter_guess
+			end
+			index += 1
+		end
+		p @blank_array
 	end
 end
 
-#Driver code
+#Driver scode
 # game_1 = Game.new
 # p game_1
 		
 # word_answer = "unicorn"
 # game_1.make_array(word_answer)
-
-
+# game_1.make_blank_array(word_answer)
+# game_1.match("c")
+# game_1.match("n")
 		
 
 

@@ -27,16 +27,17 @@
 class Game
 	# @word_answer
 	# @count
-	def initialize
+	def initialize(word_answer)
 		puts "initializing new game"
+		@word_answer = word_answer
 	end
 
-	def make_array(word_answer)
-		@word_answer_array = word_answer.split(//)
+	def make_array
+		@word_answer_array = @word_answer.split(//)
 	end
 
-	def make_blank_array(word_answer)
-		blank_array_length = word_answer.length
+	def make_blank_array
+		blank_array_length = @word_answer.length
 		@blank_array = []
 		blank_array_length.times do |char|
 			@blank_array << " _ "
@@ -44,28 +45,31 @@ class Game
 		@blank_array
 	end
 
+	def guess_count
+		@count = @word_answer.length
+	end
+
 	def match(letter_guess)
 		index = 0
-		while index < @word_answer_array.length 
-			if letter_guess == @word_answer_array[index]
+		while index < @word_answer.length 
+			if letter_guess == @word_answer[index]
 				@blank_array[index] = letter_guess
 			end
 			index += 1
 		end
-		p @blank_array
+		@blank_array
 	end
+
 end
 
 #Driver scode
-# game_1 = Game.new
+# game_1 = Game.new("unicorn")
 # p game_1
 		
-# word_answer = "unicorn"
-# game_1.make_array(word_answer)
-# game_1.make_blank_array(word_answer)
-# game_1.match("c")
-# game_1.match("n")
-		
+# p game_1.make_blank_array
+# p game_1.match("c")	
+# p game_1.match("n")
+# p game_1.guess_count		
 
 
 

@@ -1,6 +1,3 @@
-
-
-
 # Outside class
 	# Input: Word given by user and guesses by second user
 	# Create a while loop that allows the user to guess until there are no guesses left.
@@ -28,9 +25,25 @@
 			
 		
 
-	
+class Game
+	def initialize
+		puts "initializing new game"
+	end
+
+	def make_array(word_answer)
+		word_anwer_array = word_answer.split(//)
+		word_anwer_array
+	end
+end
+
+#Driver code
+# game_1 = Game.new
+# p game_1
 		
-		
+# word_answer = "unicorn"
+# game_1.make_array(word_answer)
+
+
 		
 
 

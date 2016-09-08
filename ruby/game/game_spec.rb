@@ -17,8 +17,15 @@ let(:game_1) {Game.new("unicorn")}
 	end
 
 	it "counts guesses" do
-		expect(game_1.guess_count("c")).to eq (6)
+		expect(game_1.count_down).to eq (6)
 	end
 
+	it "prints array" do
+		expect(game_1.print_update).to eq (" _ _ _ _ c _ _ ")
+	end
+
+	it "checks if player won" do
+		expect(game_1.win).to eq (nil)
+	end
 
 end

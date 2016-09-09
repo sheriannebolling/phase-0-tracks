@@ -2,7 +2,7 @@ require_relative 'game'
 
 describe Game do 
 
-let(:game_1) {Game.new("unicorn")}
+let(:game_1) {Game.new("unicorn", "o")}
 
 	it "splits a word into an array of letters" do
 		expect(game_1.make_array).to eq (["u","n","i","c","o","r","n"])
@@ -13,7 +13,7 @@ let(:game_1) {Game.new("unicorn")}
 	end
 
 	it "changes letter if letter guessed matches letter in word" do
-		expect(game_1.match("c")).to eq ([" _ ", " _ ", " _ ", "c", " _ ", " _ ", " _ "])
+		expect(game_1.match).to eq ([" _ ", " _ ", " _ ", "c", " _ ", " _ ", " _ "])
 	end
 
 	it "counts guesses" do
@@ -21,11 +21,12 @@ let(:game_1) {Game.new("unicorn")}
 	end
 
 	it "prints array" do
+		game_1
 		expect(game_1.print_update).to eq (" _ _ _ _ c _ _ ")
 	end
 
 	it "checks if player won" do
-		expect(game_1.win).to eq (nil)
+		expect(game_1.win).to be_falsey
 	end
 
 end

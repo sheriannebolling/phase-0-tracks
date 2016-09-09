@@ -25,10 +25,11 @@
 				
 
 class Game
+	# @word_answer
+	# @count
 	def initialize(word_answer)
 		puts "initializing new game"
 		@word_answer = word_answer
-		@count = word_answer.length - 1
 	end
 
 	def make_array
@@ -44,42 +45,54 @@ class Game
 		@blank_array
 	end
 
-	def count_down 
-		if @match == true
-			@count -= 1
-		end
-		 @count
+	def guess_count
+		@count = @word_answer.length
 	end
 
 	def match(letter_guess)
 		index = 0
-		@match = false
 		while index < @word_answer.length 
 			if letter_guess == @word_answer[index]
-				@blank_array[index] = letter_guess	
-				@match = true
+				@blank_array[index] = letter_guess
 			end
 			index += 1
 		end
 		@blank_array
 	end
 
-	def print_update
-		p @blank_array.join
+	def print_update(letter_guess)
+		puts "#{match(letter_guess).join}"
+		
 	end
 
-	def win
-		if (@count == 0) && (@word_answer_array == @blank_array)
-			puts "Congrats you win!"
-			win = true
-		elsif (@count == 0) && (@word_answer_array != @blank_array)
-			puts "You did not guess my word this time Bwahhh hahhahahah!"
-			win = false
-		end
-		win
-	end
 end
 
-	
+#Driver scode
+puts "User 1 please enter the word you would like user 2 to guess."
+word_answer = gets.chomp
+
+game_1 = Game.new(word_answer)
+		
+game_1.make_blank_array
+p game_1.make_blank_array.join
+
+puts "You have this many guesses left:"
+p game_1.guess_count
+
+count = word_answer.length
+
+while count > 0
+	puts "User 2 please guess a letter"
+	letter_guess = gets.chomp
+	game_1.match(letter_guess)
+	game_1.print_update(letter_guess)
+		
+	count -= 1
+end
+
+
+
+
+
 
 

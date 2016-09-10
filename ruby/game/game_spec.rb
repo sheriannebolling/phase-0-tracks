@@ -46,5 +46,5 @@ let(:game_1) {Game.new("unicorn")}
 		game_1.match("c")
 		expect(game_1.repeat).to be_truthy
 	end
-
+	
 end

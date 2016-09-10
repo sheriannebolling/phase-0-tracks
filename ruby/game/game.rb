@@ -30,7 +30,6 @@ class Game
 		puts "initializing new game"
 		@word_answer = word_answer
 		@guess_array = Array.new(0)
-		
 	end
 
 	def guesses
@@ -50,7 +49,6 @@ class Game
 		end 
 		@blank_array
 	end
-
 
 	def match(letter_guess)
 		@letter_guess = letter_guess
@@ -83,7 +81,6 @@ class Game
 	def repeat
 		@guess_array.include?(@letter_guess)
 	end
-
 end
 
 #User interface

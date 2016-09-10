@@ -30,6 +30,7 @@ class Game
 		puts "initializing new game"
 		@word_answer = word_answer
 		@guess_array = Array.new(0)
+		
 	end
 
 	def guesses
@@ -65,6 +66,7 @@ class Game
 
 	def print_update
 		puts "#{match(@letter_guess).join}"	
+		match(@letter_guess).join
 	end
 
 	def win(count)
@@ -86,13 +88,12 @@ end
 
 #User interface
 
-#Gets user 1's secret word
 puts "User 1 please enter the word you would like user 2 to guess."
 word_answer = gets.chomp
-
-#Initiates new game instance 
+ 
 game_1 = Game.new(word_answer)
 
+#Creates an array of letters of the word
 game_1.make_array
 		
 #Creates new blank word array to guess from
@@ -105,8 +106,8 @@ puts "You have this many guesses:"
 p word_answer.length
 
 
-#Allows user 2 to guess until they have no guesses left updating them on the word 
-#and number of guesses
+#Allows user 2 to guess until they have no guesses
+#Updates them on the word and number of guesses
 @count = word_answer.length
 while @count > 0
 	puts "User 2 please guess a letter"

@@ -2,22 +2,25 @@
 
 # Virus Predictor
 
-# I worked on this challenge [by myself, with: ].
+# I worked on this challenge [by myself, with: Enily].
 # We spent [#] hours on this challenge.
 
 # EXPLANATION OF require_relative
-#
-#
+# require_relative is for accessing files with in the directory and are local 
+# require is for accessing files that are not local
 require_relative 'state_data'
 
 class VirusPredictor
 
+
+#Initializes a new instance and passing state of origin, population density, and population
   def initialize(state_of_origin, population_density, population)
     @state = state_of_origin
     @population = population
     @population_density = population_density
   end
 
+# calls predicted deaths and speed of spread
   def virus_effects
     predicted_deaths(@population_density, @population, @state)
     speed_of_spread(@population_density, @state)
@@ -25,6 +28,7 @@ class VirusPredictor
 
   private
 
+#Predicting deaths based on population density and rounds it and prints out to user how many expected deaths
   def predicted_deaths(population_density, population, state)
     # predicted deaths is solely based on population density
     if @population_density >= 200
@@ -43,6 +47,7 @@ class VirusPredictor
 
   end
 
+#Predicts speed of spread by population density and prints out statement of how fast it will spread
   def speed_of_spread(population_density, state) #in months
     # We are still perfecting our formula here. The speed is also affected
     # by additional factors we haven't added into this functionality.
@@ -83,6 +88,14 @@ california.virus_effects
 
 alaska = VirusPredictor.new("Alaska", STATE_DATA["Alaska"][:population_density], STATE_DATA["Alaska"][:population])
 alaska.virus_effects
+
+
+
+STATE_DATA.each do |state, population|
+    full_report = VirusPredictor.new(state, STATE_DATA[state][:population_density], STATE_DATA[state][:population])
+    full_report.virus_effects  
+end
+
 
 
 #=======================================================================

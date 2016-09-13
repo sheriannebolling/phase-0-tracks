@@ -20,35 +20,43 @@ class VirusPredictor
     @population_density = population_density
   end
 
-# calls predicted deaths and speed of spread
-  def virus_effects
-    predicted_deaths(@population_density, @population, @state)
-    speed_of_spread(@population_density, @state)
-  end
 
   private
+# calls predicted deaths and speed of spread
+  def virus_effects
+    predicted_deaths
+    speed_of_spread
+  end
+
+
 
 #Predicting deaths based on population density and rounds it and prints out to user how many expected deaths
-  def predicted_deaths(population_density, population, state)
+  def predicted_deaths
     # predicted deaths is solely based on population density
     if @population_density >= 200
-      number_of_deaths = (@population * 0.4).floor
+      multiplier = 0.4
     elsif @population_density >= 150
-      number_of_deaths = (@population * 0.3).floor
+      multiplier = 0.3
     elsif @population_density >= 100
-      number_of_deaths = (@population * 0.2).floor
+      multiplier = 0.2
     elsif @population_density >= 50
-      number_of_deaths = (@population * 0.1).floor
+      multiplier = 0.1
     else
-      number_of_deaths = (@population * 0.05).floor
+      multiplier = 0.05
     end
+
+    number_of_deaths = (@population * multiplier).floor
 
     print "#{@state} will lose #{number_of_deaths} people in this outbreak"
 
   end
 
+# Additional way to refactor
+# number_of_deaths = (@population * multiplier).floor
+# number_from_threshold([200,150,100,50, -Float::INFINITY], [0.5, 1, 1.5, 2, 2.5])
+
 #Predicts speed of spread by population density and prints out statement of how fast it will spread
-  def speed_of_spread(population_density, state) #in months
+  def speed_of_spread #in months
     # We are still perfecting our formula here. The speed is also affected
     # by additional factors we haven't added into this functionality.
     speed = 0.0
@@ -100,7 +108,18 @@ end
 
 #=======================================================================
 # Reflection Section
-
+# # What are the differences between the two different hash syntaxes shown in the state_data file?
+    #     #One of the hashes uses strings as the keys which makes it easier for use externally and the other one uses symbols which is better
+    #     #for internal usage 
+    # # What does require_relative do? How is it different from require?
+    #     #Require_relative allows you to load a file relative to the current file you are in. 
+    #     #Require allows you to load an external file using ruby's built in load path.
+    # # What are some ways to iterate through a hash?
+    #     #You can iterate through a hash using .each .each_pair .each_key and .each_value
+    # # When refactoring virus_effects, what stood out to you about the variables, if anything?
+    #     #Anytime you have @variable initialized you can use it throughout the class so you don't need to put it in parameters
+    # # What concept did you most solidify in this challenge?
+    #     #I am definately better at refactoring now. I like making it more organized and more readable. 
 
 
 

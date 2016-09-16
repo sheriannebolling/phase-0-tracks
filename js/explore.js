@@ -7,7 +7,7 @@
 //Output - Reversed sting
 
 function reverseString(string){
-	reversedString = "";
+	var reversedString = "";
 	for (i = string.length-1; i > -1; i--)
 	newString = reversedString += (string[i]);
 	return newString;

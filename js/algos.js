@@ -11,9 +11,9 @@ var lengthWords = ["Hippo","Aligator", "Snake"]
 
 function longestString(array_strings) {
 	for (i = array_strings.length; i > 0; i--){
-			array_strings.sort(function (long, longest) { return longest.length - long.length; })[0];
-			return array_strings[0];
+		array_strings.sort(function (long, longest) { return longest.length - long.length; })[0];
 	}
+	return array_strings[0];
 }
 
 console.log(longestString(lengthPhrases));

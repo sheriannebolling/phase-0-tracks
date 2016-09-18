@@ -42,7 +42,7 @@ var sherianne = {name: "Sherianne",age: 32};
 
 function matchObjects (object_1, object_2){
 	var matches = "";
-		if (object_1.name == object_2.name|| object_1.age == object_2.age){
+		if (object_1.name === object_2.name|| object_1.age === object_2.age){
 			matches = true;
 		}
 		else {

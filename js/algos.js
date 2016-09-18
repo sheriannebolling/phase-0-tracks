@@ -42,7 +42,7 @@ var sherianne = {name: "Sherianne",age: 32};
 
 function matchObjects (object_1, object_2){
 	var matches = "";
-		if (object_1.name === object_2.name || object_1.age === object_2.age){
+		if (object_1.name == object_2.name|| object_1.age == object_2.age){
 			matches = true;
 		}
 		else {
@@ -71,35 +71,36 @@ console.log(matchObjects(sherianne, brandon));
 
 //Input - Integer
 //Create function that takes an integer as a parameter
-//If statement to make it only create words betweek 1 and 10 letters.
+//While loop to  makes number of words specified in parameter
+//For loop to make random words.
 //Use .random to make random letters 
 //Output - Array of 3 random words
 
-var wordArray = [];
-var letterArray = [];
-//Create object to create words
-function randomWords(numberWords){
-	var alphabet = "abcdefghijklmnopqrstuvwxyz";
-	var numberLetters = Math.floor(Math.random() * 10);
-	console.log(numberWords);
-	for (var i = 0; i < numberLetters; i++){
-		letterArray.push(alphabet[numberLetters]);
-		return letterArray;
+function makeWord(times){
+    var text = "";
+    var possible = "abcdefghijklmnopqrstuvwxyz";
+    wordArray = [];
+    j = 0;
+    while (j < times){
+	    for( var i=0; i < Math.random() * 5; i++ ){
+	        text += possible.charAt(Math.floor(Math.random() * possible.length));
+	    }
+	    wordArray.push(text);
+	    j++;
 	}
-	for (var j = 0; j < numberWords; j++){
-		var word = letterArray.join();
-		wordArray.push(word);
-		return wordArray;
-	}
-}	
+    console.log(wordArray);
+    return wordArray;
+}
 
-console.log(randomWords(2));
+console.log(makeWord(3));
 
-//Note
-//My intention was to generate random letters a random amount of times up until 10 and push them into an array.
-//Then join them and push them into a word array the amount of times specified as a parameter. I was able to 
-//generate random letters but it looks like when I push them into an array they are saving over each other and 
-//I am only showing 1 letter instead of many to make a word out of. I plan to take this further over the next few weeks.
+
+// Note
+// I was able to generate a random set of words but I was unable to limit the number of letters to 10.
+//I found that when I changed Math.random() * possible.length to * 10 which I would expect to limit the 
+//letters to ten it only would pick random letters from the first 10 letters in the alphabet instead.
+//I will research this more over the next week. 
+
 
 // i = 0;
 //  while (i < 10) {

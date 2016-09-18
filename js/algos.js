@@ -28,7 +28,7 @@ function longestString(array_strings) {
 	//Create two seperate objects
 	//Create function that takes two objects as parameters
 	//Iterate through each object and use if else statement in function to see if object pair 
-	//	matches using .notation
+	//matches using .notation
 
 var steven = {name: "Steven", age: 54};
 
@@ -63,7 +63,7 @@ console.log(matchObjects(sherianne, brandon));
 //Note
 //I was able to create a function that can tell you if two objects with name and age key values
 //are the same. I was unable to figure out a solution to if they had additional keys and values.
-//I tried to set x and they use thay instead of the .name but I kept running into an error with 
+//I tried to set x and then use that instead of the .name but I kept running into an error with 
 //undefined. I plan to research this more in the coming weeks to find a solution.
 
 
@@ -98,20 +98,15 @@ function makeWord(times){
 
 //Creates 10 arrays and returns the longest word of each
 x = 0;
- while (x < 10) {
+while (x < 10) {
 	longestString(makeWord(3))[0];
 	console.log(wordArray[0]);
 	x++;
 }
 
-
 // Note
 // I was able to generate a random set of words but I was unable to limit the number of letters to 10.
 //I will research this more over the next week. 
-
-
-
-
 
 
 //Bobolinks

@@ -1,4 +1,6 @@
 //Coyotes
+
+//Release 0
 //Input array of strings
 //Create a function that takes an array as a parameter
 	//Create a loop that iterates through the array and 
@@ -6,8 +8,10 @@
 		//Returns phrase with longest length using .sort
 //Expect ["long phrase","longest phrase","longer phrase"] to return "longest phrase"
 //Output longest string
+
+
 var lengthPhrases = ["long phrase","longest phrase","longer phrase"];
-var lengthWords = ["Hippo","Aligator", "Snake"]
+var lengthWords = ["Hippo","Aligator", "Snake"];
 
 function longestString(array_strings) {
 	for (i = array_strings.length; i > 0; i--){
@@ -16,8 +20,94 @@ function longestString(array_strings) {
 	return array_strings[0];
 }
 
+
+//Release 1
+//input two objects
+//output a boolean value
+	//{name: "Steven", age: 54} and {name: "Tamir", age: 54} should return true
+	//Create two seperate objects
+	//Create function that takes two objects as parameters
+	//Iterate through each object and use if else statement in function to see if object pair 
+	//	matches using .notation
+
+var steven = {name: "Steven", age: 54};
+
+var tamir = {name: "Tamir", age: 54};
+
+var brandon = {name: "Brandon", age: 34};
+
+var sherianne = {name: "Sherianne",age: 32};
+
+
+
+function matchObjects (object_1, object_2){
+	var matches = "";
+		if (object_1.name === object_2.name || object_1.age === object_2.age){
+			matches = true;
+		}
+		else {
+			matches = false;
+		}
+	return matches;
+}
+
+
+//Test code for longestString function
 console.log(longestString(lengthPhrases));
 console.log(longestString(lengthWords));
+
+console.log(matchObjects(steven, tamir));
+console.log(matchObjects(sherianne, brandon));
+
+
+//Note
+//I was able to create a function that can tell you if two objects with name and age key values
+//are the same. I was unable to figure out a solution to if they had additional keys and values.
+//I tried to set x and they use thay instead of the .name but I kept running into an error with 
+//undefined. I plan to research this more in the coming weeks to find a solution.
+
+
+//Release 2
+
+//Input - Integer
+//Create function that takes an integer as a parameter
+//If statement to make it only create words betweek 1 and 10 letters.
+//Use .random to make random letters 
+//Output - Array of 3 random words
+
+var wordArray = [];
+var letterArray = [];
+//Create object to create words
+function randomWords(numberWords){
+	var alphabet = "abcdefghijklmnopqrstuvwxyz";
+	var numberLetters = Math.floor(Math.random() * 10);
+	console.log(numberWords);
+	for (var i = 0; i < numberLetters; i++){
+		letterArray.push(alphabet[numberLetters]);
+		return letterArray;
+	}
+	for (var j = 0; j < numberWords; j++){
+		var word = letterArray.join();
+		wordArray.push(word);
+		return wordArray;
+	}
+}	
+
+console.log(randomWords(2));
+
+//Note
+//My intention was to generate random letters a random amount of times up until 10 and push them into an array.
+//Then join them and push them into a word array the amount of times specified as a parameter. I was able to 
+//generate random letters but it looks like when I push them into an array they are saving over each other and 
+//I am only showing 1 letter instead of many to make a word out of. I plan to take this further over the next few weeks.
+
+// i = 0;
+//  while (i < 10) {
+// 	randomWords(4).sort(longestString)[0];
+// 	console.log(wordArray[0]);
+// 	i += 1;
+// }
+
 
 
 //Bobolinks

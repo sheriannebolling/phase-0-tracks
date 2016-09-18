@@ -92,22 +92,25 @@ function makeWord(times){
     return wordArray;
 }
 
-console.log(makeWord(3));
+//Driver code makeWord
+//console.log(makeWord(3));
+
+
+//Creates 10 arrays and returns the longest word of each
+x = 0;
+ while (x < 10) {
+	longestString(makeWord(3))[0];
+	console.log(wordArray[0]);
+	x++;
+}
 
 
 // Note
 // I was able to generate a random set of words but I was unable to limit the number of letters to 10.
-//I found that when I changed Math.random() * possible.length to * 10 which I would expect to limit the 
-//letters to ten it only would pick random letters from the first 10 letters in the alphabet instead.
 //I will research this more over the next week. 
 
 
-// i = 0;
-//  while (i < 10) {
-// 	randomWords(4).sort(longestString)[0];
-// 	console.log(wordArray[0]);
-// 	i += 1;
-// }
+
 
 
 

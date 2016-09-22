@@ -60,7 +60,8 @@ console.log(longestString(lengthWords));
 
 console.log(matchObjects(steven, tamir));
 console.log(matchObjects(sherianne, brandon));
-
+console.log(matchObjects(sherianne, steven));
+console.log(matchObjects(sherianne, tamir));
 
 
 //Release 2

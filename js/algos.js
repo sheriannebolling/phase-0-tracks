@@ -42,12 +42,14 @@ var sherianne = {name: "Sherianne",age: 32};
 
 function matchObjects (object_1, object_2){
 	var matches = "";
-		if (object_1.name === object_2.name|| object_1.age === object_2.age){
+	for (var key in object_1){
+		if (object_1[key] === object_2[key]){
 			matches = true;
 		}
 		else {
 			matches = false;
 		}
+	}
 	return matches;
 }
 
@@ -59,12 +61,6 @@ console.log(longestString(lengthWords));
 console.log(matchObjects(steven, tamir));
 console.log(matchObjects(sherianne, brandon));
 
-
-//Note
-//I was able to create a function that can tell you if two objects with name and age key values
-//are the same. I was unable to figure out a solution to if they had additional keys and values.
-//I tried to set x and then use that instead of the .name but I kept running into an error with 
-//undefined. I plan to research this more in the coming weeks to find a solution.
 
 
 //Release 2

@@ -13,47 +13,10 @@ require 'sqlite3'
 motivationator_db = SQLite3::Database.new("motivationator.db")
 
 
-
-# create_table_tracker = <<-SQL
-#   CREATE TABLE IF NOT EXISTS tracker(
-#     id INTEGER PRIMARY KEY,
-#     feeling_id INT,
-#     quote_id INT,
-#     enter_date DATE,
-#     user_id INT
-#   )
-# SQL
-
-# motivationator_db.execute(create_table_tracker)
-
-
-
-
-
-
-# Create users table and enter users as needed
-
-create_table_users = <<-SQL
-  CREATE TABLE IF NOT EXISTS users(
-    id INTEGER PRIMARY KEY,
-    first_name VARCHAR(255),
-    last_name VARCHAR(255)
-  )
-SQL
-
-motivationator_db.execute(create_table_users)
-
-def create_user(db, first_name, last_name)
-  db.execute("INSERT INTO users (first_name, last_name) VALUES (?,?)" , [first_name, last_name])
-end
-
-
 # Code used to set up quotes and feelings tables
 
 # Create feeling table and enter feelings
-
 =begin
-
 create_table_feelings = <<-SQL
   CREATE TABLE IF NOT EXISTS feelings(
     id INTEGER PRIMARY KEY,
@@ -73,19 +36,17 @@ feelings = ["frustrated", "sad", "tired", "angry", "uninspired", "defeated"]
 feelings.length.times do |feeling|
 	create_feeling(motivationator_db, feelings[feeling])
 end
-
 =end
 
 
 #Create quotes table and enter quotes
-
 =begin
-
 create_table_quotes = <<-SQL
   CREATE TABLE IF NOT EXISTS quotes(
     id INTEGER PRIMARY KEY,
     quote VARCHAR(255),
-    feeling_id INT
+    feeling_id INT,
+    FOREIGN KEY (feeling_id) REFERENCES feelings(id)
   )
 SQL
 
@@ -138,8 +99,54 @@ quotes = {
 quotes.each do |quote, id|
   create_quote(motivationator_db, quote, id)
 end
-
 =end
+
+
+#Create tracker table 
+
+create_table_tracker = <<-SQL
+  CREATE TABLE IF NOT EXISTS tracker(
+    id INTEGER PRIMARY KEY,
+    feeling_id INT,
+    quote_id INT,
+    enter_date DATE,
+    users_id INT
+  )
+SQL
+
+
+
+
+
+def pull_quote(db, feeling_number)
+  db.execute("SELECT quote FROM quotes WHERE feeling_id == #{feeling_number} ORDER BY RANDOM() LIMIT 1;")
+end
+
+# User Interface
+
+puts "Hello!"
+puts "How are you feeling right now? (type frustrated, sad, tired, angry, uninspired, or defeated)"
+feeling = gets.chomp
+
+if feeling == "frustrated"
+  feeling_number = 1
+elsif feeling == "sad"
+  feeling_number = 2
+elsif feeling == "tired"
+  feeling_number = 3
+elsif feeling == "angry"
+  feeling_number = 4
+elsif feeling == "uninspired"
+  feeling_number = 5
+elsif feeling == "defeated"
+  feeling_number = 6
+end
+ 
+print pull_quote(motivationator_db, feeling_number)
+
+
+
+
 
 
 

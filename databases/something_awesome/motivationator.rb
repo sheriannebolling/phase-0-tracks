@@ -1,15 +1,20 @@
-# Pseudocode
+# Pseudocode for the motivationator a program that asks the user for name and the negative feeling they have that day and stores that data. 
+# Option to ask for a history of past feelings, dates, and user names.
+# Program will then print a random quote that matches the current feeling entered that day. 
+
 # Require gems
 # Create Database
-# Create 4 tables - 1 for quotes, 2 for feelings, 3 for user info, 4 is main table to track
+# Create 3 tables - 1 for quotes, 2 for feelings, 3 is main table to track
 # Create user interface to ask how feel today
 # Store the date, name, and feeling in table three
 # Retrieve quote that matched feeling entered and print to screen
 
 # require gems
+
 require 'sqlite3'
 
 # create SQLite3 database
+
 motivationator_db = SQLite3::Database.new("motivationator.db")
 
 
@@ -24,13 +29,16 @@ SQL
 
 motivationator_db.execute(create_table_feelings)
 
+
+# Create feelings table entries
+
 def create_feeling(db, feeling_name)
   db.execute("INSERT INTO feelings (feeling_name) VALUES (?)" , [feeling_name])
 end
 
 feelings = ["frustrated", "sad", "tired", "angry", "uninspired", "defeated"]
 
-
+# Un-Comment to create feelings entries
 # feelings.length.times do |feeling|
 # 	create_feeling(motivationator_db, feelings[feeling])
 # end
@@ -48,6 +56,8 @@ create_table_quotes = <<-SQL
 SQL
 
 motivationator_db.execute(create_table_quotes)
+
+# Create quotes table entries
 
 def create_quote(db, quote, feeling_id)
   db.execute("INSERT INTO quotes (quote, feeling_id) VALUES (?, ?)", [quote, feeling_id])
@@ -93,66 +103,63 @@ quotes = {
   "I’ve missed more than 9000 shots in my career. I’ve lost almost 300 games. 26 times I’ve been trusted to take the game winning shot and missed. I’ve failed over and over and over again in my life. And that is why I succeed. —Michael Jordan" => 6
 }
 
+# Un-Comment to create quotes entries
 # quotes.each do |quote, id|
 #   create_quote(motivationator_db, quote, id)
 # end
 
 
-
-#Create user table to track users info entered
-
-create_table_users = <<-SQL
-  CREATE TABLE IF NOT EXISTS users(
-    id INTEGER PRIMARY KEY,
-    first_name VARCHAR(255),
-    last_name VARCHAR(255)
-  )
-SQL
-
-motivationator_db.execute(create_table_users)
-
-def create_user(db, first_name, last_name)
-  db.execute("INSERT INTO users (first_name, last_name) VALUES (?,?)" , [first_name, last_name])
-end
-
-#Create tracker table to track feelings
+#Create tracker table to track feelings of users over time
 
 create_table_tracker = <<-SQL
   CREATE TABLE IF NOT EXISTS tracker(
     id INTEGER PRIMARY KEY,
+    first_name VARCHAR(255),
+    last_name VARCHAR(255),
     feeling_id INT,
     quote_id INT,
     enter_date DATE,
-    users_id INT,
     FOREIGN KEY (feeling_id) REFERENCES feelings(id),
-    FOREIGN KEY (quote_id) REFERENCES quotes(id),
-    FOREIGN KEY (users_id) REFERENCES users(id)
+    FOREIGN KEY (quote_id) REFERENCES quotes(id)
   )
 SQL
 
 motivationator_db.execute(create_table_tracker)
 
-def create_tracker(db, feeling_id, quote_id, enter_date, user_id)
-  db.execute("INSERT INTO tracker (feeling_id, quote_id, enter_date, users_id) VALUES (?,?,?,?)" , [feeling_id, quote_id, enter_date, user_id])
+# Create new entry into tracker
+
+def create_tracker(db, first_name, last_name, feeling_id, quote_id, enter_date)
+  db.execute("INSERT INTO tracker (first_name, last_name, feeling_id, quote_id, enter_date) VALUES (?,?,?,?,?)", [first_name, last_name, feeling_id, quote_id, enter_date])
 end
 
+# Pull random quote from quotes table where feeling entered matches feeling of quote
 
 def pull_quote(db, feeling_number)
   db.execute("SELECT quote FROM quotes WHERE feeling_id == #{feeling_number} ORDER BY RANDOM() LIMIT 1;")
 end
 
+# Pull feeling name, feeling, and dates history from tracker 
+
+def pull_tracker(db)
+  db.execute("SELECT tracker.first_name, tracker.last_name, feelings.feeling_name, tracker.enter_date FROM feelings JOIN tracker ON feeling_id = feelings.id;")
+end
+
+
+
 # User Interface
+
 puts "Hello!"
 puts "What is your first name?"
 first_name = gets.chomp
+
 puts "What is your last name?"
 last_name = gets.chomp
 puts "How are you feeling right now? (type frustrated, sad, tired, angry, uninspired, or defeated)"
 feeling = gets.chomp
 
 
+# If feeling entered matches feeling in feelings array assign it to the index + 1 to pull matching quote
 
-#If feeling entered matches feeling in feelings array assign it to the index + 1 to pull matching quote
 feeling_number = ""
 feelings.each do |feels|
   if feels == feeling
@@ -162,14 +169,22 @@ end
 
 time = Time.new.to_s
 
-create_user(motivationator_db, first_name, last_name)
+create_tracker(motivationator_db, first_name, last_name, feeling_number, feeling_number, time)
 
-create_tracker(motivationator_db, feeling_number, feeling_number, time, 1)
+puts "Would you like a history of past dates and feelings of struggle?(type y or n)"
+history = gets.chomp
 
+if history == "y"
+# Pulls feeling and date for each entered instance
+  puts pull_tracker(motivationator_db)
+  puts "Hope this quote helps!"
+else
+  puts "No problem, hope this quote helps!"
+end
+
+
+# Prints quote to match feeling entered
 puts pull_quote(motivationator_db, feeling_number)
-
-
-
 
 
 

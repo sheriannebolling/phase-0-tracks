@@ -13,10 +13,8 @@ require 'sqlite3'
 motivationator_db = SQLite3::Database.new("motivationator.db")
 
 
-# Code used to set up quotes and feelings tables
+# Create feelings table
 
-# Create feeling table and enter feelings
-=begin
 create_table_feelings = <<-SQL
   CREATE TABLE IF NOT EXISTS feelings(
     id INTEGER PRIMARY KEY,
@@ -33,14 +31,13 @@ end
 feelings = ["frustrated", "sad", "tired", "angry", "uninspired", "defeated"]
 
 
-feelings.length.times do |feeling|
-	create_feeling(motivationator_db, feelings[feeling])
-end
-=end
+# feelings.length.times do |feeling|
+# 	create_feeling(motivationator_db, feelings[feeling])
+# end
 
 
-#Create quotes table and enter quotes
-=begin
+# Create quotes table
+
 create_table_quotes = <<-SQL
   CREATE TABLE IF NOT EXISTS quotes(
     id INTEGER PRIMARY KEY,
@@ -96,13 +93,29 @@ quotes = {
   "I’ve missed more than 9000 shots in my career. I’ve lost almost 300 games. 26 times I’ve been trusted to take the game winning shot and missed. I’ve failed over and over and over again in my life. And that is why I succeed. —Michael Jordan" => 6
 }
 
-quotes.each do |quote, id|
-  create_quote(motivationator_db, quote, id)
+# quotes.each do |quote, id|
+#   create_quote(motivationator_db, quote, id)
+# end
+
+
+
+#Create user table to track users info entered
+
+create_table_users = <<-SQL
+  CREATE TABLE IF NOT EXISTS users(
+    id INTEGER PRIMARY KEY,
+    first_name VARCHAR(255),
+    last_name VARCHAR(255)
+  )
+SQL
+
+motivationator_db.execute(create_table_users)
+
+def create_user(db, first_name, last_name)
+  db.execute("INSERT INTO users (first_name, last_name) VALUES (?,?)" , [first_name, last_name])
 end
-=end
 
-
-#Create tracker table 
+#Create tracker table to track feelings
 
 create_table_tracker = <<-SQL
   CREATE TABLE IF NOT EXISTS tracker(
@@ -110,12 +123,18 @@ create_table_tracker = <<-SQL
     feeling_id INT,
     quote_id INT,
     enter_date DATE,
-    users_id INT
+    users_id INT,
+    FOREIGN KEY (feeling_id) REFERENCES feelings(id),
+    FOREIGN KEY (quote_id) REFERENCES quotes(id),
+    FOREIGN KEY (users_id) REFERENCES users(id)
   )
 SQL
 
+motivationator_db.execute(create_table_tracker)
 
-
+def create_tracker(db, feeling_id, quote_id, enter_date, user_id)
+  db.execute("INSERT INTO tracker (feeling_id, quote_id, enter_date, users_id) VALUES (?,?,?,?)" , [feeling_id, quote_id, enter_date, user_id])
+end
 
 
 def pull_quote(db, feeling_number)
@@ -123,26 +142,31 @@ def pull_quote(db, feeling_number)
 end
 
 # User Interface
-
 puts "Hello!"
+puts "What is your first name?"
+first_name = gets.chomp
+puts "What is your last name?"
+last_name = gets.chomp
 puts "How are you feeling right now? (type frustrated, sad, tired, angry, uninspired, or defeated)"
 feeling = gets.chomp
 
-if feeling == "frustrated"
-  feeling_number = 1
-elsif feeling == "sad"
-  feeling_number = 2
-elsif feeling == "tired"
-  feeling_number = 3
-elsif feeling == "angry"
-  feeling_number = 4
-elsif feeling == "uninspired"
-  feeling_number = 5
-elsif feeling == "defeated"
-  feeling_number = 6
+
+
+#If feeling entered matches feeling in feelings array assign it to the index + 1 to pull matching quote
+feeling_number = ""
+feelings.each do |feels|
+  if feels == feeling
+    feeling_number = feelings.index(feels) + 1
+  end
 end
- 
-print pull_quote(motivationator_db, feeling_number)
+
+time = Time.new.to_s
+
+create_user(motivationator_db, first_name, last_name)
+
+create_tracker(motivationator_db, feeling_number, feeling_number, time, 1)
+
+puts pull_quote(motivationator_db, feeling_number)
 
 
 

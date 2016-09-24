@@ -17,7 +17,6 @@ require 'sqlite3'
 
 motivationator_db = SQLite3::Database.new("motivationator.db")
 
-
 # Create feelings table
 
 create_table_feelings = <<-SQL
@@ -28,7 +27,6 @@ create_table_feelings = <<-SQL
 SQL
 
 motivationator_db.execute(create_table_feelings)
-
 
 # Create feelings table entries
 
@@ -42,7 +40,6 @@ feelings = ["frustrated", "sad", "tired", "angry", "uninspired", "defeated"]
 # feelings.length.times do |feeling|
 # 	create_feeling(motivationator_db, feelings[feeling])
 # end
-
 
 # Create quotes table
 
@@ -108,7 +105,6 @@ quotes = {
 #   create_quote(motivationator_db, quote, id)
 # end
 
-
 #Create tracker table to track feelings of users over time
 
 create_table_tracker = <<-SQL
@@ -144,8 +140,6 @@ def pull_tracker(db)
   db.execute("SELECT tracker.first_name, tracker.last_name, feelings.feeling_name, tracker.enter_date FROM feelings JOIN tracker ON feeling_id = feelings.id;")
 end
 
-
-
 # User Interface
 
 puts "Hello!"
@@ -156,7 +150,6 @@ puts "What is your last name?"
 last_name = gets.chomp
 puts "How are you feeling right now? (type frustrated, sad, tired, angry, uninspired, or defeated)"
 feeling = gets.chomp
-
 
 # If feeling entered matches feeling in feelings array assign it to the index + 1 to pull matching quote
 
@@ -181,7 +174,6 @@ if history == "y"
 else
   puts "No problem, hope this quote helps!"
 end
-
 
 # Prints quote to match feeling entered
 puts pull_quote(motivationator_db, feeling_number)

@@ -28,7 +28,7 @@ SQL
 
 motivationator_db.execute(create_table_feelings)
 
-# Create feelings table entries
+# Create feeling table entries
 
 def create_feeling(db, feeling_name)
   db.execute("INSERT INTO feelings (feeling_name) VALUES (?)" , [feeling_name])
@@ -54,7 +54,7 @@ SQL
 
 motivationator_db.execute(create_table_quotes)
 
-# Create quotes table entries
+# Create quote table entries
 
 def create_quote(db, quote, feeling_id)
   db.execute("INSERT INTO quotes (quote, feeling_id) VALUES (?, ?)", [quote, feeling_id])

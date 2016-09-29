@@ -2,19 +2,39 @@
 <html>
 <head>
 	<title>All about puppies</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+	<script>
+	$(document).ready(function(){
+		$("img").hide();
+	    $("#button-1").click(function(){
+	        $("#cute-1").show("slow");
+	    });
+
+	    $("#button-2").click(function(){
+	        $("#cute-2").show("slow");
+	    });
+	
+	    $("#button-3").click(function(){
+	        $("#cute-3").show("slow");
+	    });
+	});
+	</script>
 </head>
 <body>
-<h1></h1>
-<p></p>
-<img src="images/cat1.jpg" alt="cat image">
+<h1>Looking at puppies can make your day better!</h1>
+<p>Here is a pic of a cute one for you:</p>
+<button id = "button-1">Click me to see something cute</button>
+<img id = "cute-1" src="http://cdn1-www.dogtime.com/assets/uploads/gallery/30-impossibly-cute-puppies/impossibly-cute-puppy-2.jpg" alt="puddle puppy" width = 300px>
 
-<h2></h2>
-<p></p>
-<img src="images/cat1.jpg" alt="cat image">
+<h2>They are so cute they make everyone smile!</h2>
+<p>Still not feeling great? Here is another:</p>
+<button id = "button-2">Click me to see something cute</button>
+<img id = "cute-2" src="https://s-media-cache-ak0.pinimg.com/originals/4c/0d/15/4c0d15409f6cf5cbf5c820bfa05db2c5.jpg" alt="puppy" width = 300px>
 
-<h3></h3>
-<p></p>
-<img src="images/cat1.jpg" alt="cat image">
+<h3>They are sooooo adorable!</h3>
+<p>How can you not just melt for puppy kisses:</p>
+<button id = "button-3" >Click me to see something cute</button>
+<img id = "cute-3" src="https://iso.500px.com/wp-content/uploads/2016/02/stock-photo-125037925.jpg" alt="puppies kissing" width = 300px>
 
 </body>
 </html>

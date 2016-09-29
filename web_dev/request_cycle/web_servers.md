@@ -2,20 +2,20 @@
 
 There are nine major tenets to the Linux philosophy.
 
-	Small is Beautiful 
-		(Each command is small)
-	Each Program Does One Thing Well 
-		(Each command hasa specific task)
-	Prototype as Soon as Possible
-	Choose Portability Over Efficiency
-	Store Data in Flat Text Files
-	Use Software Leverage 
-		(good programmers write good code and great programmers borrow good code. Never rewrite code that has already been written.)
-	Use Shell Scripts to Increase Leverage and Portability
-		(portability of shell scripts can be far more efficient in the long run than the perceived efficiency of writing a program in a compiled language)
-	Avoid Captive User Interfaces
-	Make Every Program a Filter
-		(Each command takes an Standard Input and “filters” the data stream by making some change to it then sends the resulting data stream to Standard Output for the next command to manipulate)
+Small is Beautiful 
+	(Each command is small)
+Each Program Does One Thing Well 
+	(Each command hasa specific task)
+Prototype as Soon as Possible
+Choose Portability Over Efficiency
+Store Data in Flat Text Files
+Use Software Leverage 
+	(good programmers write good code and great programmers borrow good code. Never rewrite code that has already been written.)
+Use Shell Scripts to Increase Leverage and Portability
+	(portability of shell scripts can be far more efficient in the long run than the perceived efficiency of writing a program in a compiled language)
+Avoid Captive User Interfaces
+Make Every Program a Filter
+	(Each command takes an Standard Input and “filters” the data stream by making some change to it then sends the resulting data stream to Standard Output for the next command to manipulate)
 
 2. In your own words, what is a VPS (virtual private server)? What, according to your research, are the advantages of using a VPS?
 

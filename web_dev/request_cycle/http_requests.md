@@ -19,23 +19,25 @@
 2. What is the difference between a GET request and a POST request? When might each be used?
 
 GET requests 
-	* request data from resource
-	* (name/value pairs) sent in the URL
-	* can be bookmarked
-	* has length restrictions
-	* can be cached
-	* remains in the browser history
-	* should never be used when dealing with sensitive data
-	* should be used only to retrieve data
+
+request data from resource
+(name/value pairs) sent in the URL
+can be bookmarked
+has length restrictions
+can be cached
+remains in the browser history
+should never be used when dealing with sensitive data
+should be used only to retrieve data
 
 
 Post requests 
-	* submit data to be processed to resource
-	* (name/value pairs) sent in the HTTP message body
-	* cannot be bookmarked
-	* no restrictions on data length
-	* never cached
-	* does not remain in the browser history
+
+submit data to be processed to resource
+(name/value pairs) sent in the HTTP message body
+cannot be bookmarked
+no restrictions on data length
+never cached
+does not remain in the browser history
 
 Other HTTP Request Methods
 

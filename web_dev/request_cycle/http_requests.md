@@ -1,4 +1,4 @@
-1. What are some common HTTP status codes?
+What are some common HTTP status codes?
 
 200 OK (Request has succeeded)
 300 Multiple Choices (Resource has several choices that match and can't resolve- could be multiple with same name)
@@ -16,7 +16,7 @@
 503 Service Unavailable (Your server is unable to handle request)
 550 Permission denied (The account you are logged into does not have permission to perform the action)
 
-2. What is the difference between a GET request and a POST request? When might each be used?
+What is the difference between a GET request and a POST request? When might each be used?
 
 GET requests 
 
@@ -47,7 +47,7 @@ DELETE	- Deletes the specified resource
 OPTIONS	- Returns the HTTP methods that the server supports
 CONNECT	- Converts the request connection to a transparent TCP/IP tunnel
 
-3. Optional bonus question: What is a cookie (the technical kind, not the delicious kind)? How does it relate to HTTP requests?
+Optional bonus question: What is a cookie (the technical kind, not the delicious kind)? How does it relate to HTTP requests?
 
 A cookie is a bit of data that a server sends to the browser. The browser may store it and send it with the next request that goes to that same server. It may allow that user to stay logged in and remembers information for protocols. This can be useful for personalization and tracking.
 

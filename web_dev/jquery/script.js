@@ -1,4 +1,4 @@
-$(document).ready(function(){
+$(function(){
 		$("img").hide();
 	    $("#button-1").click(function(){
 	        $("#cute-1").show("slow");

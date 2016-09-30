@@ -24,3 +24,4 @@ A VPS is a virtual server that is installed on a computer. It is great for small
 Optional bonus question: Why is it considered a bad idea to run programs as the root user on a Linux system?
 
 It is considered to be good practice on any operating system to run your applications on a user level and leave administrative tasks to the root user only on a need basis. It is a security issue and makes the system more vulnerable as the root user has full permission. If you log in through your own user account, programs you run are restricted from writing to the rest of the system – they can only write to your home folder. You can only modify system files if you have root permissions. Logging in as user helps keep your computer secure rather than leaving your entire system open to being compromised.
+

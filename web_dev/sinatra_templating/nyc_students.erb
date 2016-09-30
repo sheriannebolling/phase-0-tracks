@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>NYC Students</title>
+    <link rel='stylesheet' type='text/css' href='styles.css'>
+</head>
+<body>
+    <h1>NYC Students</h1>
+        <ul>
+            <% @students.each do |student| %>
+                <% if student['campus'] == "NYC" %>
+                    <li><%= student['name'] %>, <%= student['age'] %></li>
+                <% end %>
+            <% end %>
+        </ul>
+        <h3>Add new NYC student:</h3>
+        <form action="/students/new_nyc_student" method="POST">
+            <input type="text" name="name" placeholder="Name">
+            <input type="text" name="age" placeholder="Age">
+            <button type="submit">Save</button>
+        </form>
+</body>
+</html>
